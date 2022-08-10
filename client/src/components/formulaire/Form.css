@@ -1,0 +1,131 @@
+
+/* body{
+    background-color: rgba(109,124,144,.1);
+    height: 300vh;
+} */
+
+.container1{
+    /* height: fit-content;
+    width: fit-content; */
+    position: relative;
+    /* background-color: aquamarine; */
+    width: 100%;
+    height: 150vh;
+}
+
+.container2{
+    position: relative;
+    /* background-color: rgb(255, 127, 191); */
+    width: 100%;
+    height: 120vh;
+}
+
+.form--container{
+    position: absolute;
+    padding: 20px 10px 10px 40px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 700px;
+    height: fit-content;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 3px 10px 4px #aaaaaa;
+    /* margin-bottom: 500px; */
+}
+
+
+.form--container form{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.form--container input{
+    background-color: rgba(109,124,144,.1);
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    height: 50px;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Work Sans', sans-serif;;
+    font-size: 15px;
+    text-indent: 15px;
+    letter-spacing: -0.5px;
+    font-weight: 500;
+    width: 500px;
+}
+
+.form--container input:focus{
+    outline: 2.5px solid var(--maincolor);
+    background-color: white;
+    color: rgb(0, 0, 0);
+}
+
+.form--container input:hover{
+    box-shadow: 0px 2px 5px 0.001px #aaaaaa;
+    transition: .3s;
+}
+
+.title{
+    margin-bottom: 60px;
+    color: var(--maincolor);
+    font-size:45px;
+    margin-top: 20px;
+}
+.titlePg2{
+    margin-bottom: 40px;
+    color: var(--maincolor);
+    font-size:40px;
+    margin-top: 30px;
+}
+
+.form--container button{
+    width: 150px;
+    height: 50px;
+    border-radius: 7px;
+    border: none;
+    background-color: var(--maincolor);
+    color: white;
+    font-size: 20px;
+    font-weight:bold;
+    /* margin:auto; */
+    margin-top: 20px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.form--container button:hover{
+    background-color: rgb(37, 56, 82);
+    transition: .3s;
+}
+
+.form--container label{
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.mdp{
+    margin-bottom: 0 !important;
+    margin-right: 10px;
+}
+
+.mdp--container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    width: fit-content;
+    margin-bottom: 25px;
+}
+
+.oeil{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
