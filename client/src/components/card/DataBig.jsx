@@ -58,11 +58,11 @@ export default [
         src: "../../../public/images/services/coaching.png",
         name: "Coaching et formation"
     },
-    // {
-    //     id: 11,
-    //     src: "../../../public/images/services/dog.png",
-    //     name: "Soins aux animaux"
-    // },
+    {
+        id: 11,
+        src: "../../../public/images/services/couture.png",
+        name: "Couture"
+    },
     {
         id: 12,
         src: "../../../public/images/services/déménagement.png",
