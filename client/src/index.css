@@ -1,6 +1,7 @@
 :root{
   --backgroundColor : rgba(109,124,144,.1);
-  --maincolor : rgba(163, 79, 219, 0.918); 
+  --maincolor : rgba(163, 79, 219, 0.74); 
+  --secondarycolor : rgb(10, 85, 85);
 }
 
 *{
@@ -34,4 +35,20 @@ button{
 button:hover{
   background-color: rgb(37, 56, 82);
   transition: .3s;
+}
+
+.title{
+  /* margin-bottom: 60px; */
+  color: var(--maincolor);
+  font-size:45px;
+  margin-top: 20px;
+}
+
+.containerAll{
+  width: 95%;
+  margin: auto;
+  background-color: var(--backgroundColor);
+  border-radius: 15px;
+  transition: .3s;
+  margin-bottom: 100px;
 }

@@ -72,12 +72,11 @@
     transition: .3s;
 }
 
-.title{
-    margin-bottom: 60px;
-    color: var(--maincolor);
-    font-size:45px;
-    margin-top: 20px;
+.nomUtili{
+    margin-top: 60px;
 }
+
+
 .titlePg2{
     margin-bottom: 40px;
     color: var(--maincolor);

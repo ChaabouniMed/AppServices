@@ -49,23 +49,21 @@
     padding: 40px 0 10px 70px;
     justify-content: center;
     align-items: center;
-    margin-top: 200px;
+    /* margin-top: 20px; */
     text-align: center;
 }
 
 .services--container{
-    background-color: rgba(109, 124, 144, 0.301);
-    border-radius: 15px;
-    width: 95%;
-    margin: auto;
-    transition: .3s;
-    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .btn--cards{
     width: 110px;
     height: 35px;
     font-size: 18px;
     font-weight:bold;
-    display: block;
-    margin: auto;
+    /* display: block;
+    margin: auto; */
 }

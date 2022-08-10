@@ -30,7 +30,7 @@ export default function FormNewAcc(){
                 <div className="form--container">
                     <h1 className='title'>Inscription</h1>
                     <form action="">
-                        <label htmlFor="nom">Nom d'utilisateur</label>
+                        <label htmlFor="nom" className='nomUtili'>Nom d'utilisateur</label>
                         <input 
                             type="text" 
                             name='utilisateur'

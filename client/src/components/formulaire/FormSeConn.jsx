@@ -27,9 +27,9 @@ export default function FormNewAccount(){
             <Navbar />
             <div className='container2'>
                 <div className="form--container">
-                    <h1 className='titlePg2'>Welcome Back to</h1>
+                    <h1 className='title'>Welcome Back to</h1>
                     <form action="">
-                        <label htmlFor="nom">Nom d'utilisateur</label>
+                        <label htmlFor="nom" className='nomUtili'>Nom d'utilisateur</label>
                         <input 
                             type="text" 
                             name='nom'
