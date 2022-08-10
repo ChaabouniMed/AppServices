@@ -85,26 +85,6 @@
     margin-top: 30px;
 }
 
-.form--container button{
-    width: 150px;
-    height: 50px;
-    border-radius: 7px;
-    border: none;
-    background-color: var(--maincolor);
-    color: white;
-    font-size: 20px;
-    font-weight:bold;
-    /* margin:auto; */
-    margin-top: 20px;
-    cursor: pointer;
-    margin-bottom: 30px;
-}
-
-.form--container button:hover{
-    background-color: rgb(37, 56, 82);
-    transition: .3s;
-}
-
 .form--container label{
     margin-bottom: 8px;
     font-size: 16px;

@@ -64,17 +64,8 @@
 .btn--cards{
     width: 110px;
     height: 35px;
-    border-radius: 7px;
-    border: none;
-    background-color: var(--maincolor);
-    color: white;
     font-size: 18px;
     font-weight:bold;
-    /* margin:auto; */
-    margin-top: 20px;
-    cursor: pointer;
-    margin-bottom: 30px;
-    /* margin-left: 400px; */
     display: block;
     margin: auto;
 }

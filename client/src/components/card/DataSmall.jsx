@@ -60,8 +60,8 @@ export default [
     },
     {
         id: 11,
-        src: "../../../public/images/services/dog.png",
-        name: "Soins aux animaux"
+        src: "../../../public/images/services/couture.png",
+        name: "Couture"
     },
     {
         id: 12,
