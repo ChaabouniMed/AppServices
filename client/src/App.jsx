@@ -4,7 +4,7 @@ import FormNewAcc from "./components/formulaire/FormNewAcc"
 import FormSeConn from "./components/formulaire/FormSeConn"
 import AllCards from './components/card/AllCards'
 import Fonctionnement from './components/fonctionnemet/Fonctionnement'
-
+import Footer from './components/Footer'
 
 function App() {
 
@@ -14,6 +14,7 @@ function App() {
       <FormSeConn />
       <AllCards />
       <Fonctionnement />
+      <Footer />
     </div>
   )
 }

@@ -9,9 +9,9 @@ export default function Navbar()
                             return (<p></p>)
                         else
                             return(
-                            <ul class="navbar-dropdown-items">
-                            <li>Se connecter</li>
-                            <li>Creer un compte</li>
+                            <ul className="navbar-dropdown-all-items">
+                            <li className="navbar-dropdown-items">Se&nbsp;connecter</li>
+                            <li className="navbar-dropdown-items">Creer&nbsp;un&nbsp;compte</li>
                             </ul>)
                     }
                 const [ShowMenu,SetShowMenu]=React.useState(true)
@@ -27,11 +27,13 @@ export default function Navbar()
                             <li>Recherche</li>    
                             <li>Services</li>
                             <li>About us</li>
-                        </ul>
+                            <li>
                         <div className="navbar-dropdown">
-                            <button className="navbar-dropdown-menu" onClick={toggleshowmenu}>Compte</button>
+                            <p className="navbar-dropdown-button" onClick={toggleshowmenu}>Compte</p>
                             <DropDownItems ShowMenu={ShowMenu} />
                         </div>
+                        </li>
+                        </ul>
                     </div>
                     )
             }
