@@ -10,7 +10,7 @@ export default function Footer()
                 <li className="footer-link"><img src="../../../public/images/linkedin.png" className="socialmedia-logo"/>Mohamed Chaabouni</li>
                 <li className="footer-link"><img src="../../../public/images/linkedin.png" className="socialmedia-logo"/>Mahdi Ayadi</li>
             </ul> */}
-            <div className="footer-bottom">
+            <div className="footer-bottom" id="footer">
                 Copyright © 2022 
             </div>
         </div>

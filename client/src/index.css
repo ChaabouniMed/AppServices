@@ -52,3 +52,8 @@ button:hover{
   transition: .3s;
   margin-bottom: 100px;
 }
+a
+{
+  text-decoration: none;
+  color: white;
+}

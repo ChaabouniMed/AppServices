@@ -25,7 +25,6 @@ export default function FormNewAcc(){
     }
     return(
         <div>
-            <Navbar />
             <div className='container1'>
                 <div className="form--container">
                     <h1 className='title'>Inscription</h1>
