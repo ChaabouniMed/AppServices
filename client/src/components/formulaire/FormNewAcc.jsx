@@ -17,7 +17,7 @@ export default function FormNewAcc(){
         email:"",
         mdp:""
             })
-    //--------------------Second test 
+    //-------------------- DataBase functions
     const [user, setUser] = useState({});
 
     useEffect(() => {
@@ -41,18 +41,18 @@ export default function FormNewAcc(){
       }
     };
   
-    const login = async () => {
-      try {
-        const user = await signInWithEmailAndPassword(
-          auth,
-          loginEmail,
-          loginPassword
-        );
-        console.log(user);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
+    // const login = async () => {
+    //   try {
+    //     const user = await signInWithEmailAndPassword(
+    //       auth,
+    //       loginEmail,
+    //       loginPassword
+    //     );
+    //     console.log(user);
+    //   } catch (error) {
+    //     console.log(error.message);
+    //   }
+    // };
   
     const logout = async () => {
       await signOut(auth);
@@ -129,7 +129,7 @@ export default function FormNewAcc(){
                             onClick={() => setMdpVisible(!MdpVisible)}
                             />
                         </div>
-                        <button onClick={register}>S'inscrire</button>
+                        <button onClick={register} type="button" >S'inscrire</button>
                         </form>
                     <h4> User Logged In: </h4>
       {user? user.email : "Not Logged In"}
