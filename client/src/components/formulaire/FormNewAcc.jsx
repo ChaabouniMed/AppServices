@@ -1,6 +1,13 @@
 import React from 'react'
 import './Form.css'
-import Navbar from '../Navbar'
+import { useState, useEffect } from "react"; 
+import { auth } from "./../../firebase-config";
+import {
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut,
+  } from "firebase/auth";
 
 export default function FormNewAcc(){
     const [formData,setFormData] = React.useState({
@@ -9,11 +16,51 @@ export default function FormNewAcc(){
         prénom:"",
         email:"",
         mdp:""
-    })
+            })
+    //--------------------Second test 
+    const [user, setUser] = useState({});
+
+    useEffect(() => {
+      onAuthStateChanged(auth, (currentUser) => {
+          setUser(currentUser);
+      });
+  
+  }, [])
+  
+  
+    const register = async () => {
+      try {
+        const user = await createUserWithEmailAndPassword(
+          auth,
+          formData.email,
+          formData.mdp
+        );
+        console.log(user);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+  
+    const login = async () => {
+      try {
+        const user = await signInWithEmailAndPassword(
+          auth,
+          loginEmail,
+          loginPassword
+        );
+        console.log(user);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+  
+    const logout = async () => {
+      await signOut(auth);
+    };
+    
 
     const [MdpVisible,setMdpVisible] = React.useState(true)
 
-    console.log(formData)
 
     function handleChange(event){
         setFormData(old => {
@@ -28,7 +75,7 @@ export default function FormNewAcc(){
             <div className='container1'>
                 <div className="form--container">
                     <h1 className='title'>Inscription</h1>
-                    <form action="">
+                        <form action="">
                         <label htmlFor="nom" className='nomUtili'>Nom d'utilisateur</label>
                         <input 
                             type="text" 
@@ -82,8 +129,12 @@ export default function FormNewAcc(){
                             onClick={() => setMdpVisible(!MdpVisible)}
                             />
                         </div>
-                        <button>S'inscrire</button>
-                    </form>
+                        <button onClick={register}>S'inscrire</button>
+                        </form>
+                    <h4> User Logged In: </h4>
+      {user? user.email : "Not Logged In"}
+
+      <button onClick={logout}> Sign Out </button>
                 </div>
             </div>
         </div>
