@@ -12,7 +12,7 @@ function App() {
     <div>
       <Navbar />
       <FormNewAcc />
-      {/* <FormSeConn /> */}
+      <FormSeConn />
       <AllCards />
       <Fonctionnement />
       <Footer />

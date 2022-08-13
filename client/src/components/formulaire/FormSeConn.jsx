@@ -1,6 +1,8 @@
 import React from 'react'
 import './Form.css'
 import Navbar from '../Navbar'
+import { useState, useEffect } from "react"; 
+import { auth } from "./../../firebase-config";
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
@@ -25,7 +27,8 @@ export default function FormNewAccount(){
                 [event.target.name]: event.target.value
             }
         })
-    // -------- DataBase functions 
+    }
+        // -------- DataBase functions 
     const login = async () => {
         try {
           const user = await signInWithEmailAndPassword(
@@ -40,10 +43,10 @@ export default function FormNewAccount(){
       };
 
     // --------
-    }
+    
     return(
         <div>
-            <Navbar />
+            
             <div className='container2'>
                 <div className="form--container">
                     <h1 className='title'>Welcome Back to</h1>
@@ -74,7 +77,7 @@ export default function FormNewAccount(){
                             onClick={() => setMdpVisible(!mdpVisible)}
                             />
                         </div>
-                        <button onClick={login}>s'identifier</button>
+                        <button type="button" onClick={login}>s'identifier</button>
                     </form>
                 </div>
             </div>
