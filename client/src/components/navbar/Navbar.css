@@ -12,6 +12,7 @@
     width: 100%;
     z-index: 99;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    top: 0;
 }
 .nav-logo
 {
@@ -22,7 +23,7 @@
     list-style: none;
 }
 
-.navbar-links>li
+.navbar-links li
 {   
     transition: 0.8s;
     display: inline-block;

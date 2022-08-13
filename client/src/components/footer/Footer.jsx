@@ -3,7 +3,7 @@ import './Footer.css'
 export default function Footer()
 {
     return (
-        <div className="footer">
+        <footer className="footer">
             <h4 className="footer-logo">WebsiteName</h4>
             <p>WebsiteName a été developpé par Mohamed Chaabouni et Mahdi Ayadi en cadre de projet d'été </p>
             {/* <ul>
@@ -13,7 +13,7 @@ export default function Footer()
             <div className="footer-bottom" id="footer">
                 Copyright © 2022 
             </div>
-        </div>
+        </footer>
         )
 
 }

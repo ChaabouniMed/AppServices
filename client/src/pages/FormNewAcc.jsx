@@ -1,22 +1,22 @@
 import React from 'react'
 import './Form.css'
 import { useState, useEffect } from "react"; 
-import { auth } from "./../../firebase-config";
+import { auth } from "../firebase-config";
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     onAuthStateChanged,
     signOut,
-  } from "firebase/auth";
-  import { db } from "./../../firebase-config";
-  import {
+} from "firebase/auth";
+import { db } from "../firebase-config";
+import {
     collection,
     getDocs,
     addDoc,
     updateDoc,
     deleteDoc,
     doc,
-  } from "firebase/firestore";
+} from "firebase/firestore";
 export default function FormNewAcc(){
     const [formData,setFormData] = React.useState({
         utilisateur:"",
@@ -29,27 +29,26 @@ export default function FormNewAcc(){
     const [user, setUser] = useState({});
 
     useEffect(() => {
-      onAuthStateChanged(auth, (currentUser) => {
-          setUser(currentUser);
-      });
-  
-  }, [])
-  
-  const usersCollectionRef = collection(db, "users");
+    onAuthStateChanged(auth, (currentUser) => {
+        setUser(currentUser);
+    });
+}, [])
+
+const usersCollectionRef = collection(db, "users");
     const register = async () => {
-      try {
+    try {
         const user = await createUserWithEmailAndPassword(
-          auth,
-          formData.email,
-          formData.mdp
+        auth,
+        formData.email,
+        formData.mdp
         );
 
         addDoc(usersCollectionRef, { nom: formData.nom, prenom: formData.prénom, email : formData.email })
-      } catch (error) {
+    } catch (error) {
         console.log(error.message);
-      }
+    }
     };
-  
+
     // const login = async () => {
     //   try {
     //     const user = await signInWithEmailAndPassword(
@@ -62,9 +61,9 @@ export default function FormNewAcc(){
     //     console.log(error.message);
     //   }
     // };
-  
+
     const logout = async () => {
-      await signOut(auth);
+    await signOut(auth);
     };
     
 
@@ -141,9 +140,9 @@ export default function FormNewAcc(){
                         <button onClick={register} type="button" >S'inscrire</button>
                         </form>
                     <h4> User Logged In: </h4>
-      {user? user.email : "Not Logged In"}
+    {user? user.email : "Not Logged In"}
 
-      <button onClick={logout}> Sign Out </button>
+    <button onClick={logout}> Sign Out </button>
                 </div>
             </div>
         </div>

@@ -1,14 +1,14 @@
 import React from 'react'
 import './Form.css'
-import Navbar from '../Navbar'
+import Navbar from '../components/navbar/Navbar'
 import { useState, useEffect } from "react"; 
-import { auth } from "./../../firebase-config";
+import { auth } from "../firebase-config";
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     onAuthStateChanged,
     signOut,
-  } from "firebase/auth";
+} from "firebase/auth";
 export default function FormNewAccount(){
     const [FormDataSignIn,setFormDataSignIn] = React.useState({
         nom:"",
@@ -31,16 +31,16 @@ export default function FormNewAccount(){
         // -------- DataBase functions 
     const login = async () => {
         try {
-          const user = await signInWithEmailAndPassword(
+        const user = await signInWithEmailAndPassword(
             auth,
             FormDataSignIn.email,
             FormDataSignIn.mdp
-          );
-          console.log('logged in ');
+        );
+        console.log('logged in ');
         } catch (error) {
-          console.log(error.message);
+        console.log(error.message);
         }
-      };
+    };
 
     // --------
     

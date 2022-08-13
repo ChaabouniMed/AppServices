@@ -18,7 +18,7 @@ export default function AllCards(){
         )
     })
     return(
-        <div className="services--container containerAll">
+        <div className="services--container containerAll" id="services">
             <h1 className="title">Services</h1>
             <div className="cards--container">
                 {cards}
