@@ -27,6 +27,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path='signin' element={<FormNewAcc />} />
         <Route path='login' element={<FormSeConn setUser={setUser}/>} />
+        <Route path='signin' element={<FormNewAcc />} />
         <Route path='*' element={<Error />} />
         </Route>
       </Routes>
