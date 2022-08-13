@@ -36,7 +36,7 @@ export default function FormNewAccount(){
             FormDataSignIn.email,
             FormDataSignIn.mdp
           );
-          console.log(user);
+          console.log('logged in ');
         } catch (error) {
           console.log(error.message);
         }

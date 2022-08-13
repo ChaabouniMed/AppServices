@@ -8,7 +8,15 @@ import {
     onAuthStateChanged,
     signOut,
   } from "firebase/auth";
-
+  import { db } from "./../../firebase-config";
+  import {
+    collection,
+    getDocs,
+    addDoc,
+    updateDoc,
+    deleteDoc,
+    doc,
+  } from "firebase/firestore";
 export default function FormNewAcc(){
     const [formData,setFormData] = React.useState({
         utilisateur:"",
@@ -27,7 +35,7 @@ export default function FormNewAcc(){
   
   }, [])
   
-  
+  const usersCollectionRef = collection(db, "users");
     const register = async () => {
       try {
         const user = await createUserWithEmailAndPassword(
@@ -35,7 +43,8 @@ export default function FormNewAcc(){
           formData.email,
           formData.mdp
         );
-        console.log(user);
+
+        addDoc(usersCollectionRef, { nom: formData.nom, prenom: formData.prénom, email : formData.email })
       } catch (error) {
         console.log(error.message);
       }
@@ -76,7 +85,7 @@ export default function FormNewAcc(){
                 <div className="form--container">
                     <h1 className='title'>Inscription</h1>
                         <form action="">
-                        <label htmlFor="nom" className='nomUtili'>Nom d'utilisateur</label>
+                        {/* <label htmlFor="nom" className='nomUtili'>Nom d'utilisateur</label>
                         <input 
                             type="text" 
                             name='utilisateur'
@@ -84,7 +93,7 @@ export default function FormNewAcc(){
                             value={formData.utilisateur}
                             onChange={handleChange}
                             required
-                        />
+                        /> */}
                         <label htmlFor="nom">Nom</label>
                         <input 
                             type="text" 
