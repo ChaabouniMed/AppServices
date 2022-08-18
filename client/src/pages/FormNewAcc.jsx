@@ -79,71 +79,69 @@ const usersCollectionRef = collection(db, "users");
         })
     }
     return(
-        <div>
-            <div className='container1'>
-                <div className="form--container">
-                    <h1 className='title'>Inscription</h1>
-                        <form action="">
-                        {/* <label htmlFor="nom" className='nomUtili'>Nom d'utilisateur</label>
+        <div className='container1'>
+            <div className="form--container">
+                <h1 className='title'>Inscription</h1>
+                    <form action="">
+                    {/* <label htmlFor="nom" className='nomUtili'>Nom d'utilisateur</label>
+                    <input 
+                        type="text" 
+                        name='utilisateur'
+                        placeholder="Ton nom d'utilisateur"
+                        value={formData.utilisateur}
+                        onChange={handleChange}
+                        required
+                    /> */}
+                    <label htmlFor="nom" className='first--input'>Nom</label>
+                    <input 
+                        type="text" 
+                        name='nom'
+                        placeholder="Ton nom"
+                        value={formData.nom}
+                        onChange={handleChange}
+                        required
+                    />
+                    <label htmlFor="nom">Préom</label>
+                    <input 
+                        type="text" 
+                        name='prénom'
+                        placeholder="Ton prénom"
+                        value={formData.prénom}
+                        onChange={handleChange}
+                        required
+                    />
+                    <label htmlFor="email">E-mail adresse</label>
+                    <input 
+                        type="email" 
+                        name='email'
+                        placeholder="Ton e-mail adresse"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                    />
+                    <label htmlFor="mdp">Mot de passe</label>
+                    <div className="mdp--container">
                         <input 
-                            type="text" 
-                            name='utilisateur'
-                            placeholder="Ton nom d'utilisateur"
-                            value={formData.utilisateur}
-                            onChange={handleChange}
-                            required
-                        /> */}
-                        <label htmlFor="nom">Nom</label>
-                        <input 
-                            type="text" 
-                            name='nom'
-                            placeholder="Ton nom"
-                            value={formData.nom}
+                            className="mdp"
+                            type={MdpVisible ? "password" : "text"}
+                            name="mdp"
+                            placeholder="Ton mot de passe"
+                            value={formData.mdp}
                             onChange={handleChange}
                             required
                         />
-                        <label htmlFor="nom">Préom</label>
-                        <input 
-                            type="text" 
-                            name='prénom'
-                            placeholder="Ton prénom"
-                            value={formData.prénom}
-                            onChange={handleChange}
-                            required
+                        <img 
+                        className='oeil' 
+                        src="../../../public/images/oeil.png" 
+                        onClick={() => setMdpVisible(!MdpVisible)}
                         />
-                        <label htmlFor="email">E-mail adresse</label>
-                        <input 
-                            type="email" 
-                            name='email'
-                            placeholder="Ton e-mail adresse"
-                            value={formData.email}
-                            onChange={handleChange}
-                            required
-                        />
-                        <label htmlFor="mdp">Mot de passe</label>
-                        <div className="mdp--container">
-                            <input 
-                                className="mdp"
-                                type={MdpVisible ? "password" : "text"}
-                                name="mdp"
-                                placeholder="Ton mot de passe"
-                                value={formData.mdp}
-                                onChange={handleChange}
-                                required
-                            />
-                            <img 
-                            className='oeil' 
-                            src="../../../public/images/oeil.png" 
-                            onClick={() => setMdpVisible(!MdpVisible)}
-                            />
-                        </div>
-                        <button onClick={register} type="button" >S'inscrire</button>
-                        </form>
-                    <h4> User Logged In: </h4>
-    {user? user.email : "Not Logged In"}
+                    </div>
+                    <button onClick={register} type="button" >S'inscrire</button>
+                    </form>
+                <h4> User Logged In: </h4>
+{user? user.email : "Not Logged In"}
 
-    <button onClick={logout}> Sign Out </button>
-                </div>
+<button onClick={logout}> Sign Out </button>
             </div>
         </div>
     )   

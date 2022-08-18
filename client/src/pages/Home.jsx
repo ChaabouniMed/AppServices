@@ -5,8 +5,8 @@ import Fonctionnement from '../components/fonctionnemet/Fonctionnement'
 export default function Home() {
   return (
     <div>
-        <AllCards />
-        <Fonctionnement />
+      <AllCards />
+      <Fonctionnement />
     </div>
   )
 }

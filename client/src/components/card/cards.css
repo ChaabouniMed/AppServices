@@ -53,22 +53,22 @@
     text-align: center;
 }
 
-.containerAllCards{
-    margin-top: 80px;
+.title{
+    margin-bottom: 0;
 }
-
 .services--container{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 100px !important;
+    /* margin-top: 100px !important; */
 }
 .btn--cards{
     width: 110px;
     height: 35px;
     font-size: 18px;
     font-weight:bold;
+    /* margin-top: 0; */
     /* display: block;
     margin: auto; */
 }

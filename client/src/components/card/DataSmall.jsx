@@ -58,29 +58,29 @@ export default [
         src: "/images/services/coaching.png",
         name: "Coaching et formation"
     },
-    {
-        id: 11,
-        src: "/images/services/couture.png",
-        name: "Couture"
-    },
-    {
-        id: 12,
-        src: "/images/services/déménagement.png",
-        name: "Déménagement"
-    },
-    {
-        id: 13,
-        src: "/images/services/electromenager.png",
-        name: "Réparation électroménager"
-    },
-    {
-        id: 14,
-        src: "/images/services/livraison.png",
-        name: "Livraison et courses"
-    },
-    {
-        id: 15,
-        src: "/images/services/maquillage.png",
-        name: "Beauté"
-    },
+    // {
+    //     id: 11,
+    //     src: "/images/services/couture.png",
+    //     name: "Couture"
+    // },
+    // {
+    //     id: 12,
+    //     src: "/images/services/déménagement.png",
+    //     name: "Déménagement"
+    // },
+    // {
+    //     id: 13,
+    //     src: "/images/services/electromenager.png",
+    //     name: "Réparation électroménager"
+    // },
+    // {
+    //     id: 14,
+    //     src: "/images/services/livraison.png",
+    //     name: "Livraison et courses"
+    // },
+    // {
+    //     id: 15,
+    //     src: "/images/services/maquillage.png",
+    //     name: "Beauté"
+    // },
 ]
