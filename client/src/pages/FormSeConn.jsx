@@ -10,13 +10,19 @@ import {
     signOut,
 } from "firebase/auth";
 import { Link } from 'react-router-dom';
-export default function FormNewAccount(){
+export default function FormNewAccount(props){
     const [FormDataSignIn,setFormDataSignIn] = React.useState({
         nom:"",
         email:"",
         mdp:""
     })
 
+    useEffect(() => {
+        onAuthStateChanged(auth, (currentUser) => {
+            props.setUser(currentUser);
+        });
+    }, [])
+    
     const [mdpVisible,setMdpVisible] = React.useState(true)
 
     console.log(FormDataSignIn)
@@ -38,8 +44,9 @@ export default function FormNewAccount(){
             FormDataSignIn.mdp
         );
         console.log('logged in ');
+        
         } catch (error) {
-        console.log(error.message);
+        alert(error.message);
         }
     };
 
@@ -53,9 +60,9 @@ export default function FormNewAccount(){
                     <label htmlFor="nom" className='first--input'>Nom d'utilisateur</label>
                     <input 
                         type="text" 
-                        name='nom'
+                        name='email'
                         placeholder="Ton nom d'utilisateur"
-                        value={FormDataSignIn.nom}
+                        value={FormDataSignIn.email}
                         onChange={handleChange}
                         required
                     />

@@ -17,7 +17,7 @@ import {
     deleteDoc,
     doc,
 } from "firebase/firestore";
-export default function FormNewAcc(){
+export default function FormNewAcc(props){
     const [formData,setFormData] = React.useState({
         utilisateur:"",
         nom:"",
@@ -26,11 +26,11 @@ export default function FormNewAcc(){
         mdp:""
             })
     //-------------------- DataBase functions
-    const [user, setUser] = useState({});
+
 
     useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
-        setUser(currentUser);
+        props.setUser(currentUser);
     });
 }, [])
 
@@ -42,10 +42,10 @@ const usersCollectionRef = collection(db, "users");
         formData.email,
         formData.mdp
         );
-
-        addDoc(usersCollectionRef, { nom: formData.nom, prenom: formData.prénom, email : formData.email })
+        addDoc(usersCollectionRef, { role : "user" , utilisateur : formData.utilisateur ,nom: formData.nom, prenom: formData.prénom, email : formData.email , mdp : formData.mdp  })
     } catch (error) {
-        console.log(error.message);
+        if(error.message == "Firebase: Error (auth/email-already-in-use).")
+        alert("Email non disponible");
     }
     };
 
@@ -83,7 +83,7 @@ const usersCollectionRef = collection(db, "users");
             <div className="form--container">
                 <h1 className='title'>Inscription</h1>
                     <form action="">
-                    {/* <label htmlFor="nom" className='nomUtili'>Nom d'utilisateur</label>
+                    <label htmlFor="nom" className='nomUtili'>Nom d'utilisateur</label>
                     <input 
                         type="text" 
                         name='utilisateur'
@@ -91,7 +91,7 @@ const usersCollectionRef = collection(db, "users");
                         value={formData.utilisateur}
                         onChange={handleChange}
                         required
-                    /> */}
+                    />
                     <label htmlFor="nom" className='first--input'>Nom</label>
                     <input 
                         type="text" 
@@ -139,7 +139,7 @@ const usersCollectionRef = collection(db, "users");
                     <button onClick={register} type="button" >S'inscrire</button>
                     </form>
                 <h4> User Logged In: </h4>
-{user? user.email : "Not Logged In"}
+{props.user? props.user.email : "Not Logged In"}
 
 <button onClick={logout}> Sign Out </button>
             </div>

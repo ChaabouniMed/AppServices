@@ -12,7 +12,7 @@ import SharedLayout from './pages/SharedLayout';
 import Error from './pages/Error';
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
   return (
     <div>
       {/* <Navbar />
@@ -25,9 +25,9 @@ function App() {
       <Routes>
         <Route path='/' element={<SharedLayout />}>
         <Route index element={<Home />} />
-        <Route path='signin' element={<FormNewAcc />} />
+        
         <Route path='login' element={<FormSeConn setUser={setUser}/>} />
-        <Route path='signin' element={<FormNewAcc />} />
+        <Route path='signin' element={<FormNewAcc setUser={setUser} user={user} />} />
         <Route path='*' element={<Error />} />
         </Route>
       </Routes>
