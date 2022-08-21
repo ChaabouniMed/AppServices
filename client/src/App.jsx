@@ -10,18 +10,40 @@ import Footer from './components/footer/Footer'
 import Home from './pages/Home';
 import SharedLayout from './pages/SharedLayout';
 import Error from './pages/Error';
-import { auth } from "./firebase-config";
 import {useEffect} from 'react' 
 import {onAuthStateChanged} from "firebase/auth";
+import { auth } from "./firebase-config";
+import { db } from "./firebase-config";
+import {
+    collection,
+    getDocs,
+    addDoc,
+    updateDoc,
+    deleteDoc,
+    doc,
+    setDoc
+} from "firebase/firestore";
 
 function App() {
   const [user, setUser] = useState({});
+  const usersCollectionRef = collection(db, "users");
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
         setUser(currentUser);
     });
 }, [])
-console.log(user.email)
+// console.log(user.email)
+
+getDocs(usersCollectionRef)
+        .then((snapshot) => {
+            let userrs = []
+            snapshot.docs.forEach((doc) => {
+                userrs.push({...doc.data(), id: doc.id})
+            })
+            console.log(userrs)
+        })
+
+
   return (
     <div>
       {/* <Navbar />
