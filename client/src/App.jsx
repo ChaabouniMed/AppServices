@@ -10,9 +10,18 @@ import Footer from './components/footer/Footer'
 import Home from './pages/Home';
 import SharedLayout from './pages/SharedLayout';
 import Error from './pages/Error';
+import { auth } from "./firebase-config";
+import {useEffect} from 'react' 
+import {onAuthStateChanged} from "firebase/auth";
 
 function App() {
   const [user, setUser] = useState({});
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+        setUser(currentUser);
+    });
+}, [])
+console.log(user.email)
   return (
     <div>
       {/* <Navbar />

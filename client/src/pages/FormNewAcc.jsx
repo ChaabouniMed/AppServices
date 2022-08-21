@@ -16,8 +16,10 @@ import {
     updateDoc,
     deleteDoc,
     doc,
+    setDoc
 } from "firebase/firestore";
 export default function FormNewAcc(props){
+
     const [formData,setFormData] = React.useState({
         utilisateur:"",
         nom:"",
@@ -28,21 +30,24 @@ export default function FormNewAcc(props){
     //-------------------- DataBase functions
 
 
-    useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
-        props.setUser(currentUser);
-    });
-}, [])
 
 const usersCollectionRef = collection(db, "users");
     const register = async () => {
     try {
+
         const user = await createUserWithEmailAndPassword(
         auth,
         formData.email,
         formData.mdp
-        );
-        addDoc(usersCollectionRef, { role : "user" , utilisateur : formData.utilisateur ,nom: formData.nom, prenom: formData.prénom, email : formData.email , mdp : formData.mdp  })
+        )
+        const docRef = doc(db, "users", formData.email );
+        setDoc(docRef, formData).then(() => {
+            console.log("Document has been added successfully")
+        })
+        .catch(error => {
+            console.log(error);
+})
+        
     } catch (error) {
         if(error.message == "Firebase: Error (auth/email-already-in-use).")
         alert("Email non disponible");
