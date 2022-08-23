@@ -10,6 +10,9 @@ import Footer from './components/footer/Footer'
 import Home from './pages/Home';
 import SharedLayout from './pages/SharedLayout';
 import Error from './pages/Error';
+import Profile from './pages/Profile'
+import ProtectedRoute from './pages/ProtectedRoute';
+import SingleService from './pages/SingleService'
 import {useEffect} from 'react' 
 import {onAuthStateChanged} from "firebase/auth";
 import { auth } from "./firebase-config";
@@ -26,24 +29,38 @@ import {
 
 function App() {
   const [user, setUser] = useState({});
+  // console.log(user)
   const usersCollectionRef = collection(db, "users");
+  let currentUtili
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
+      // console.log(currentUser)
         setUser(currentUser);
+
     });
-}, [])
+}, [user])
 // console.log(user.email)
+  const [currentUser,setCurrentUser] = useState({})
 
-getDocs(usersCollectionRef)
+  useEffect(() => {
+    getDocs(usersCollectionRef)
         .then((snapshot) => {
-            let userrs = []
+            let userList = []
+            let ici = {}
             snapshot.docs.forEach((doc) => {
-                userrs.push({...doc.data(), id: doc.id})
+                userList.push({...doc.data(), id: doc.id})
             })
-            console.log(userrs)
+            if(user != null) 
+              userList.forEach((item) => {
+              if (item.email == user.email) {
+              setCurrentUser(item)
+              } 
+            })
+            else setCurrentUser({})
         })
+  },[user])
 
-
+        console.log(currentUser)
   return (
     <div>
       {/* <Navbar />
@@ -54,13 +71,19 @@ getDocs(usersCollectionRef)
       <Footer /> */}
       <BrowserRouter>
       <Routes>
-        <Route path='/' element={<SharedLayout />}>
-        <Route index element={<Home />} />
-        
+        <Route path='/' element={<SharedLayout currentUser={currentUser}/>}>
+        <Route index element={<Home currentUser={currentUser} />} />
+        <Route path="profile/services/:serviceId" element={<SingleService />} />
+        <Route path="services/:serviceId" element={<SingleService />} />
         <Route path='login' element={<FormSeConn setUser={setUser}/>} />
         <Route path='signin' element={<FormNewAcc setUser={setUser} user={user} />} />
-        <Route path='*' element={<Error />} />
+        <Route path='*' element={<Error currentUser={currentUser} />} />
         </Route>
+        <Route path='profile' element={
+        // <ProtectedRoute currentUser={currentUser}>
+          <Profile currentUser={currentUser}/>
+        // </ProtectedRoute>
+        } />
       </Routes>
       <Footer />
       </BrowserRouter>

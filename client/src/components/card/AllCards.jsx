@@ -3,6 +3,7 @@ import Card from "./Card";
 import DataSmall from './DataSmall'
 import DataBig from './DataBig'
 import './cards.css'
+import { Link } from "react-router-dom";
 
 
 export default function AllCards(){
@@ -10,11 +11,13 @@ export default function AllCards(){
     let data = more ? DataSmall : DataBig
     const cards = data.map(item => {
         return(
-            <Card
-            key={item.id}
-            src={item.src}
-            name={item.name} 
-            />
+            <Link key={item.id} to={`services/${item.id}`}>
+                <Card
+                key={item.id}
+                src={item.src}
+                name={item.name} 
+                />
+            </Link>
         )
     })
     return(

@@ -1,5 +1,6 @@
 import React from 'react'
 import './Form.css'
+import FormSeConn from './FormSeConn'
 import { useState, useEffect } from "react"; 
 import { auth } from "../firebase-config";
 import {
@@ -18,6 +19,8 @@ import {
     doc,
     setDoc
 } from "firebase/firestore";
+import { Link, useNavigate } from 'react-router-dom';
+
 export default function FormNewAcc(props){
 
     const [formData,setFormData] = React.useState({
@@ -32,6 +35,7 @@ export default function FormNewAcc(props){
 
 
 const usersCollectionRef = collection(db, "users");
+
     const register = async () => {
     try {
 
@@ -43,14 +47,15 @@ const usersCollectionRef = collection(db, "users");
         const docRef = doc(db, "users", formData.email );
         setDoc(docRef, formData).then(() => {
             console.log("Document has been added successfully")
+            navigate('/profile')
         })
         .catch(error => {
             console.log(error);
-})
+})  
         
     } catch (error) {
         if(error.message == "Firebase: Error (auth/email-already-in-use).")
-        alert("Email non disponible");
+        alert("Email déjà utilisé !");
     }
     };
 
@@ -66,9 +71,10 @@ const usersCollectionRef = collection(db, "users");
     //     console.log(error.message);
     //   }
     // };
-
+    const navigate = useNavigate()
     const logout = async () => {
     await signOut(auth);
+    navigate('/')
     };
     
 
@@ -88,7 +94,7 @@ const usersCollectionRef = collection(db, "users");
             <div className="form--container">
                 <h1 className='title'>Inscription</h1>
                     <form action="">
-                    <label htmlFor="nom" className='nomUtili'>Nom d'utilisateur</label>
+                    <label htmlFor="nom" className='first--input'>Nom d'utilisateur</label>
                     <input 
                         type="text" 
                         name='utilisateur'
@@ -97,7 +103,7 @@ const usersCollectionRef = collection(db, "users");
                         onChange={handleChange}
                         required
                     />
-                    <label htmlFor="nom" className='first--input'>Nom</label>
+                    <label htmlFor="nom" >Nom</label>
                     <input 
                         type="text" 
                         name='nom'
@@ -141,12 +147,9 @@ const usersCollectionRef = collection(db, "users");
                         onClick={() => setMdpVisible(!MdpVisible)}
                         />
                     </div>
+                    <p>Vous avez déjà un compte ? <Link to="/login" style={{color:"#563E5B",borderBottom:"1px solid #563E5B"}}>connecter maintenant</Link></p> 
                     <button onClick={register} type="button" >S'inscrire</button>
                     </form>
-                <h4> User Logged In: </h4>
-{props.user? props.user.email : "Not Logged In"}
-
-<button onClick={logout}> Sign Out </button>
             </div>
         </div>
     )   

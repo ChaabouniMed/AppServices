@@ -19,7 +19,7 @@ export default function Navbar()
                                 {/* <Link to="/login">
                                 <li className="navbar-item">Se connecter</li>
                                 </Link> */}
-                                <li className="navbar-item" onClick={() => setDroping(!droping)}>Compte</li>
+                                <li className={droping ? "navbar-item" : "btn-holded"} onClick={() => setDroping(!droping)}>Compte</li>
                             </ul>
                         </div>
                         <ul className={droping ? "dropdown--none" : "dropdown"}>

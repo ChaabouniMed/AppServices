@@ -1,14 +1,22 @@
 import React from "react";
 import './Navbar.css'
 import { Link } from 'react-router-dom';
+import {signOut} from "firebase/auth";
+import { auth } from "../../firebase-config";
+import { useNavigate } from 'react-router-dom';
 
-export default function NavbarProfile({setUser,user})
+export default function NavbarProfile({currentUser})
             {
                 const [droping,setDroping] = React.useState(true)
+                const navigate = useNavigate()
+                const logout = async () => {
+                    await signOut(auth);
+                    navigate('/')
+                    };
                 return (
                     <div className="nav--container">
                         <div className="nav">
-                            <Link to="/">
+                            <Link to="/profile">
                             <h3 className="nav-logo">WebsiteName</h3>
                             </Link>
                             <ul className="navbar-links">
@@ -19,16 +27,21 @@ export default function NavbarProfile({setUser,user})
                                 {/* <Link to="/login">
                                 <li className="navbar-item">Se connecter</li>
                                 </Link> */}
-                                <li className="profile--btn" onClick={() => setDroping(!droping)}>Nom d'utilisateur</li>
+                                {console.log(currentUser)}
+                                {/* <li className="btn-holded-profile" onClick={() => setDroping(!droping)}>{currentUser.utilisateur}</li> */}
+                                {JSON.stringify(currentUser) == JSON.stringify({}) ? <li></li> : <li className="btn-holded-profile" onClick={() => setDroping(!droping)}>{currentUser.utilisateur}</li>}
                             </ul>
                         </div>
                         <ul className={droping ? "dropdown--none" : "dropdown"}>
-                            <Link to="/login">
-                                <li onClick={() => setDroping(true)}>Se connecter</li>
+                            <Link to="/54">
+                                <li onClick={() => setDroping(true)}>Settings</li>
                             </Link>
-                            <Link to="/signin">
-                                <li onClick={() => setDroping(true)}>Créer un compte</li>
-                            </Link>
+                                <li style={{cursor :"pointer"}}
+                                onClick={
+                                // setDroping(true)
+                                logout}>
+                                Se déconnecter
+                                </li>
                         </ul>
                     </div>
                     )

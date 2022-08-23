@@ -35,10 +35,7 @@
     padding: 0 20px ;
     font-weight: bold;
 }
-.navbar-items 
-{
-    transition: 0.8s;
-}
+
 
 .dropdown{
     background-color: rgb(187, 125, 228);
@@ -118,7 +115,7 @@
 {
     background : #040225;
 }
- .navbar-item:hover
+.navbar-item:hover
 {
     background: var(--secondarycolor);
     visibility: none;
@@ -131,4 +128,22 @@
 {
     display: flex;
     flex-direction: column;
+}
+
+.btn-holded{
+    background: var(--secondarycolor);
+    visibility: none;
+    transition: 0.4s;
+    border-radius: 7px;
+    cursor: pointer;
+    padding: 10px 30px !important;
+}
+
+.btn-holded-profile{
+    background: var(--secondarycolor);
+    visibility: none;
+    transition: none !important;
+    border-radius: 7px;
+    cursor: pointer;
+    padding: 10px 30px !important;
 }

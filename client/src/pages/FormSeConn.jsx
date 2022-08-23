@@ -9,14 +9,14 @@ import {
     onAuthStateChanged,
     signOut,
 } from "firebase/auth";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 export default function FormNewAccount(props){
     const [FormDataSignIn,setFormDataSignIn] = React.useState({
-        nom:"",
         email:"",
         mdp:""
     })
 
+    const navigate = useNavigate()
     useEffect(() => {
         onAuthStateChanged(auth, (currentUser) => {
             props.setUser(currentUser);
@@ -25,7 +25,6 @@ export default function FormNewAccount(props){
     
     const [mdpVisible,setMdpVisible] = React.useState(true)
 
-    console.log(FormDataSignIn)
 
     function handleChange(event){
         setFormDataSignIn(old => {
@@ -44,6 +43,7 @@ export default function FormNewAccount(props){
             FormDataSignIn.mdp
         );
         console.log('logged in ');
+        navigate('/profile')
         
         } catch (error) {
         alert(error.message);
@@ -57,11 +57,11 @@ export default function FormNewAccount(props){
             <div className="form--container">
                 <h1 className='title'>Welcome Back to</h1>
                 <form action="">
-                    <label htmlFor="nom" className='first--input'>Nom d'utilisateur</label>
+                    <label htmlFor="email" className='first--input'>E-mail adresse</label>
                     <input 
-                        type="text" 
+                        type="email" 
                         name='email'
-                        placeholder="Ton nom d'utilisateur"
+                        placeholder="Ton e-mail adresse"
                         value={FormDataSignIn.email}
                         onChange={handleChange}
                         required
@@ -83,7 +83,7 @@ export default function FormNewAccount(props){
                         onClick={() => setMdpVisible(!mdpVisible)}
                         />
                     </div>
-                    <p>Vous n'avez pas un compte ? <Link to="/signin" style={{color:"#563E5B"}}>Créer maintenant</Link></p> 
+                    <p>Vous n'avez pas un compte ? <Link to="/signin" style={{color:"#563E5B",borderBottom:"1px solid #563E5B"}}>Créer maintenant</Link></p> 
                     <button type="button" onClick={login}>s'identifier</button>
                 </form>
             </div>
