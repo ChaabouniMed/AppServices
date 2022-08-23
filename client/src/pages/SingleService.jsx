@@ -35,7 +35,7 @@ export default function SingleService() {
         {/* <img src={currentService.src} alt="" /> */}
         <div className="post-list">
           {postLists.map((post) => {
-            return <Post title={post.title} text={post.text} owner={post.owner}  />
+            return <Post title={post.title} text={post.text} owner={post.owner} photo={post.photo?post.photo : 'https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg'}  />
           })}
         </div>
     </div>
