@@ -73,17 +73,17 @@ function App() {
       <Routes>
         <Route path='/' element={<SharedLayout currentUser={currentUser}/>}>
         <Route index element={<Home currentUser={currentUser} />} />
-        <Route path="profile/services/:serviceId" element={<SingleService />} />
+        {/* <Route path="profile/services/:serviceId" element={<SingleService />} /> */}
         <Route path="services/:serviceId" element={<SingleService />} />
         <Route path='login' element={<FormSeConn setUser={setUser}/>} />
         <Route path='signin' element={<FormNewAcc setUser={setUser} user={user} />} />
         <Route path='*' element={<Error currentUser={currentUser} />} />
-        </Route>
         <Route path='profile' element={
-        // <ProtectedRoute currentUser={currentUser}>
           <Profile currentUser={currentUser}/>
-        // </ProtectedRoute>
         } />
+        {/* <Route path='creerpost' element ={<Createpost />}/> */}
+        </Route>
+        
       </Routes>
       <Footer />
       </BrowserRouter>

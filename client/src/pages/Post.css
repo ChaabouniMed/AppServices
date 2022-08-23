@@ -1,0 +1,30 @@
+.post-big-container
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.post-list
+{
+    padding: 10px;
+}
+.post-container
+{
+    padding: 20px;
+    background-color: #9fa5b5;;
+    border-radius: 8px;
+    text-align: center;
+}
+.post-title
+{
+
+}
+.post-text
+{
+
+}
+.post-author
+{
+
+}

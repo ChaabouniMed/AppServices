@@ -11,7 +11,7 @@ export default function AllCards(){
     let data = more ? DataSmall : DataBig
     const cards = data.map(item => {
         return(
-            <Link key={item.id} to={`services/${item.id}`}>
+            <Link key={item.id} to={`services/${item.name}`}>
                 <Card
                 key={item.id}
                 src={item.src}
