@@ -79,7 +79,7 @@ function App() {
         <Route path='signin' element={<FormNewAcc setUser={setUser} user={user} />} />
         <Route path='*' element={<Error currentUser={currentUser} />} />
         <Route path='profile' element={
-          <Profile currentUser={currentUser}/>
+          <Profile currentUser={currentUser} user={user} />
         } />
         {/* <Route path='creerpost' element ={<Createpost />}/> */}
         </Route>

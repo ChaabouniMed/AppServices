@@ -28,7 +28,8 @@ export default function FormNewAcc(props){
         nom:"",
         prénom:"",
         email:"",
-        mdp:""
+        mdp:"",
+        verified:"false"
             })
     //-------------------- DataBase functions
 

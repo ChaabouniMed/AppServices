@@ -33,8 +33,8 @@ export default function NavbarProfile({currentUser})
                             </ul>
                         </div>
                         <ul className={droping ? "dropdown--none" : "dropdown"}>
-                            <Link to="/54">
-                                <li onClick={() => setDroping(true)}>Settings</li>
+                            <Link to="/profile">
+                                <li onClick={() => setDroping(true)}>Profile</li>
                             </Link>
                                 <li style={{cursor :"pointer"}}
                                 onClick={
