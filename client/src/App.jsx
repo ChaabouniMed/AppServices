@@ -12,6 +12,7 @@ import SharedLayout from './pages/SharedLayout';
 import Error from './pages/Error';
 import Profile from './pages/Profile'
 import ProtectedRoute from './pages/ProtectedRoute';
+import Createpost from './pages/Createpost' ;
 import SingleService from './pages/SingleService'
 import {useEffect} from 'react' 
 import {onAuthStateChanged} from "firebase/auth";
@@ -90,7 +91,7 @@ function App() {
         <Route path='profile' element={
           <Profile currentUser={currentUser} user={user} />
         } />
-        {/* <Route path='creerpost' element ={<Createpost />}/> */}
+        <Route path='creerpost' element ={<Createpost currentUser={currentUser} user={user}/>}/>
         </Route>
         
       </Routes>

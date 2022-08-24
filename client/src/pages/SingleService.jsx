@@ -27,15 +27,15 @@ export default function SingleService() {
   
       getPosts();
     }, []);
-
+    console.log(serviceId)
   return (
     <div className='post-big-container'>
 
-      <button onClick={()=>navigate('/profile')}>Créer post</button>
+      <button onClick={()=>navigate('/creerpost')}>Créer post</button>
         {/* <img src={currentService.src} alt="" /> */}
         <div className="post-list containerAll">
-          {postLists.map((post) => {
-            return <Post title={post.title} text={post.text} owner={post.owner} photo={post.photo?post.photo : 'https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg'}  />
+          {postLists.map((post) => { if (post.service == serviceId)
+            return <Post title={post.service} text={post.description} owner={post.prix} photo={post.photo?post.photo : 'https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg'}  />
           })}
         </div>
     </div>
