@@ -54,6 +54,7 @@ return (
                     <form action="">
                         <label className='first--input'>Service</label>
                         <select 
+                            className='select'
                             value={formData.service}
                             onChange={handleChange}
                             name="service"

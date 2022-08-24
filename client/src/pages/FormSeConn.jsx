@@ -83,7 +83,7 @@ export default function FormNewAccount(props){
                         onClick={() => setMdpVisible(!mdpVisible)}
                         />
                     </div>
-                    <p>Vous n'avez pas un compte ? <Link to="/signin" style={{color:"#563E5B",borderBottom:"1px solid #563E5B"}}>Créer maintenant</Link></p> 
+                    <p style={{fontSize:"15px"}}>Vous n'avez pas un compte ? <Link to="/signin" style={{color:"#563E5B",borderBottom:"1px solid #563E5B"}}>Créer maintenant</Link></p> 
                     <button type="button" onClick={login}>s'identifier</button>
                 </form>
             </div>

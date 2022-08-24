@@ -148,7 +148,7 @@ const usersCollectionRef = collection(db, "users");
                         onClick={() => setMdpVisible(!MdpVisible)}
                         />
                     </div>
-                    <p>Vous avez déjà un compte ? <Link to="/login" style={{color:"#563E5B",borderBottom:"1px solid #563E5B"}}>connecter maintenant</Link></p> 
+                    <p style={{fontSize:"15px"}}>Vous avez déjà un compte ? <Link to="/login" style={{color:"#563E5B",borderBottom:"1px solid #563E5B"}}>connecter maintenant</Link></p> 
                     <button onClick={register} type="button" >S'inscrire</button>
                     </form>
             </div>
