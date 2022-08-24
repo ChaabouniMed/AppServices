@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px; 
-    height: 50px;
+    height: 55px;
     position: fixed;
     width: 100%;
     z-index: 99;
@@ -122,12 +122,29 @@
     transition: 0.4s;
     border-radius: 7px;
     cursor: pointer;
-    padding: 10px 30px;
+    padding: 8px 30px;
 }
 .navbar-menu
 {
     display: flex;
     flex-direction: column;
+}
+
+.user-img{
+    width: 19px;
+    height: 19px;
+    margin-right: 13px;
+}
+
+.user--name{
+    /* margin-top: 5px; */
+}
+
+.user--btn{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    padding-top: 0px;
 }
 
 .btn-holded{
@@ -145,5 +162,7 @@
     transition: none !important;
     border-radius: 7px;
     cursor: pointer;
-    padding: 10px 30px !important;
+    padding: 7px 30px 7px 30px !important;
+    /* display: flex;
+    flex-direction: column; */
 }

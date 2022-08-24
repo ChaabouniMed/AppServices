@@ -48,7 +48,7 @@ const usersCollectionRef = collection(db, "users");
         const docRef = doc(db, "users", formData.email );
         setDoc(docRef, formData).then(() => {
             console.log("Document has been added successfully")
-            navigate('/profile')
+            navigate('/')
         })
         .catch(error => {
             console.log(error);

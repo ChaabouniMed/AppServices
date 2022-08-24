@@ -43,7 +43,7 @@ export default function FormNewAccount(props){
             FormDataSignIn.mdp
         );
         console.log('logged in ');
-        navigate('/profile')
+        navigate('/')
         
         } catch (error) {
         alert(error.message);

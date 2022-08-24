@@ -33,7 +33,7 @@ export default function SingleService() {
 
       <button onClick={()=>navigate('/profile')}>Créer post</button>
         {/* <img src={currentService.src} alt="" /> */}
-        <div className="post-list">
+        <div className="post-list containerAll">
           {postLists.map((post) => {
             return <Post title={post.title} text={post.text} owner={post.owner} photo={post.photo?post.photo : 'https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg'}  />
           })}

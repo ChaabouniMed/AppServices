@@ -16,7 +16,7 @@ export default function NavbarProfile({currentUser})
                 return (
                     <div className="nav--container">
                         <div className="nav">
-                            <Link to="/profile">
+                            <Link to="/">
                             <h3 className="nav-logo">WebsiteName</h3>
                             </Link>
                             <ul className="navbar-links">
@@ -27,9 +27,14 @@ export default function NavbarProfile({currentUser})
                                 {/* <Link to="/login">
                                 <li className="navbar-item">Se connecter</li>
                                 </Link> */}
-                                {console.log(currentUser)}
+                                {/* {console.log(currentUser)} */}
                                 {/* <li className="btn-holded-profile" onClick={() => setDroping(!droping)}>{currentUser.utilisateur}</li> */}
-                                {JSON.stringify(currentUser) == JSON.stringify({}) ? <li></li> : <li className="btn-holded-profile" onClick={() => setDroping(!droping)}>{currentUser.utilisateur}</li>}
+                                {JSON.stringify(currentUser) == JSON.stringify({}) ? <li></li> : <li className="btn-holded-profile" onClick={() => setDroping(!droping)}>
+                                    <div className="user--btn">
+                                        <img className="user-img" src="../../../public/images/user.png"/>
+                                        <span className="user--name">{currentUser.utilisateur}</span>
+                                    </div>
+                                    </li>}
                             </ul>
                         </div>
                         <ul className={droping ? "dropdown--none" : "dropdown"}>

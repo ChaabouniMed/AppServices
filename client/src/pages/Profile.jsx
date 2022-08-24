@@ -48,7 +48,7 @@ export default function Profile(props) {
 
 return (
     <div>
-        <div className='container1'>
+        <div className='container1' style={{height:"100vh"}}>
             <div className="form--container">
                 <h1 className='title'>Profile</h1>
                     <form action="">
@@ -84,6 +84,6 @@ return (
                     </form>
             </div>
         </div>
-    </div>
+    // </div>
 )
 }
