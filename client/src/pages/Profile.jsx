@@ -48,42 +48,42 @@ export default function Profile(props) {
 
 return (
     <div>
-        <div className='container1' style={{height:"100vh"}}>
-            <div className="form--container">
-                <h1 className='title'>Profile</h1>
-                    <form action="">
-                    <label htmlFor="nom" className='first--input'>Numero de telephone</label>
-                    <input 
-                        type="text" 
-                        name='numero'
-                        placeholder="Numero de telephone"
-                        value={formData.numero}
-                        onChange={handleChange}
-                        required
-                    />
-                    <label htmlFor="nom" >Lien facebook</label>
-                    <input 
-                        type="text" 
-                        name='facebook'
-                        placeholder="facebook.com/profile/..."
-                        value={formData.facebook}
-                        onChange={handleChange}
-                        required
-                    />
-                    <label htmlFor="nom">Ville</label>
-                    <input 
-                        type="text" 
-                        name='ville'
-                        placeholder="Tunis , Sfax , Sousse ..."
-                        value={formData.ville}
-                        onChange={handleChange}
-                        required
-                    />
+      <div className='container1' style={{height:"100vh"}}>
+          <div className="form--container">
+              <h1 className='title'>Profile</h1>
+                  <form action="">
+                  <label htmlFor="nom" className='first--input'>Numero de telephone</label>
+                  <input 
+                      type="text" 
+                      name='numero'
+                      placeholder="Numero de telephone"
+                      value={formData.numero}
+                      onChange={handleChange}
+                      required
+                  />
+                  <label htmlFor="nom" >Lien facebook</label>
+                  <input 
+                      type="text" 
+                      name='facebook'
+                      placeholder="facebook.com/profile/..."
+                      value={formData.facebook}
+                      onChange={handleChange}
+                      required
+                  />
+                  <label htmlFor="nom">Ville</label>
+                  <input 
+                      type="text" 
+                      name='ville'
+                      placeholder="Tunis , Sfax , Sousse ..."
+                      value={formData.ville}
+                      onChange={handleChange}
+                      required
+                  />
 
-                    <button onClick={handleSubmit} type="button" >Valider</button>
-                    </form>
-            </div>
-        </div>
-    // </div>
+                  <button onClick={handleSubmit} type="button" >Valider</button>
+                  </form>
+          </div>
+      </div>
+    </div>
 )
 }

@@ -20,12 +20,12 @@ export default function NavbarProfile({currentUser})
                             <h3 className="nav-logo">WebsiteName</h3>
                             </Link>
                             <ul className="navbar-links">
-                                <li className="navbar-item"><a href="#top" >Acceuil</a></li>
-                                <li className="navbar-item">Recherche</li>    
-                                <li className="navbar-item"><a href="#services">Services</a></li>
-                                <li className="navbar-item"><a href="#footer" >À propos</a></li>
+                                <li className="navbar-item-profile"><a href="#top" >Acceuil</a></li>
+                                <li className="navbar-item-profile"><div></div> Recherche</li>    
+                                <li className="navbar-item-profile"><a href="#services">Services</a></li>
+                                <li className="navbar-item-profile"><a href="#footer" >À propos</a></li>
                                 {/* <Link to="/login">
-                                <li className="navbar-item">Se connecter</li>
+                                <li className="navbar-item-profile">Se connecter</li>
                                 </Link> */}
                                 {/* {console.log(currentUser)} */}
                                 {/* <li className="btn-holded-profile" onClick={() => setDroping(!droping)}>{currentUser.utilisateur}</li> */}
@@ -33,6 +33,7 @@ export default function NavbarProfile({currentUser})
                                     <div className="user--btn">
                                         <img className="user-img" src="../../../public/images/user.png"/>
                                         <span className="user--name">{currentUser.utilisateur}</span>
+                                        <img className="arrow--down" src="../../../public/images/arrow-down.png" alt="" />
                                     </div>
                                     </li>}
                             </ul>

@@ -124,6 +124,15 @@
     cursor: pointer;
     padding: 8px 30px;
 }
+.navbar-item-profile:hover
+{
+    background: var(--secondarycolor);
+    visibility: none;
+    transition: 0.4s;
+    border-radius: 7px;
+    cursor: pointer;
+    padding: 12px 30px 6px 30px;
+}
 .navbar-menu
 {
     display: flex;
@@ -136,15 +145,20 @@
     margin-right: 13px;
 }
 
+.arrow--down{
+    width: 21px;
+    height: 21px;
+    margin-left: 13px;
+}
+
 .user--name{
     /* margin-top: 5px; */
 }
 
 .user--btn{
-    /* display: flex;
+    display: flex;
     justify-content: center;
-    align-items: center; */
-    padding-top: 0px;
+    align-items:center;
 }
 
 .btn-holded{
@@ -153,7 +167,7 @@
     transition: 0.4s;
     border-radius: 7px;
     cursor: pointer;
-    padding: 10px 30px !important;
+    padding: 8px 30px !important;
 }
 
 .btn-holded-profile{
@@ -162,7 +176,7 @@
     transition: none !important;
     border-radius: 7px;
     cursor: pointer;
-    padding: 7px 30px 7px 30px !important;
+    padding: 8px 27px 8px 30px !important;
     /* display: flex;
     flex-direction: column; */
 }
