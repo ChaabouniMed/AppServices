@@ -13,7 +13,7 @@ import {
   setDoc
 } from "firebase/firestore";
 import { db } from "../firebase-config";
-export default function Profile(props) {
+export default function Settings(props) {
   const [photo, setPhoto] = useState(null);
     const navigate= useNavigate()
     useEffect(() => {
@@ -59,7 +59,7 @@ return (
     <div>
         <div className='container1'>
             <div className="form--container">
-                <h1 className='title'>Profile</h1>
+                <h1 className='title'>Settings</h1>
                     <form action="">
                     <label htmlFor="nom" className='first--input'>Numero de telephone</label>
                     <input 

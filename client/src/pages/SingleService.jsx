@@ -7,13 +7,15 @@ import { db } from "../firebase-config";
 import  Post  from './Post' 
 import './Post.css'
 
-export default function SingleService() {
+export default function SingleService({serviceName,setServiceName}) {
 
   const [postLists, setPostList] = useState([]);
   const postsCollectionRef = collection(db, "posts");
   const navigate = useNavigate()
 
     const {serviceId} = useParams()
+    console.log(serviceId)
+    useEffect(() => {setServiceName({serviceId})},[serviceId])
     let currentService = {}
     Data.forEach((service) => {
         if(service.name == serviceId) currentService = service
@@ -27,7 +29,6 @@ export default function SingleService() {
   
       getPosts();
     }, []);
-    console.log(serviceId)
   return (
     <div className='post-big-container'>
 

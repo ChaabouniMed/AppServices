@@ -13,7 +13,7 @@ setDoc
 import { db } from "../firebase-config";
 import DataBig from '../components/card/DataBig'
 
-export default function Profile(props) {
+export default function Createpost(props) {
 
     const navigate= useNavigate()
     useEffect(() => {
@@ -26,8 +26,8 @@ export default function Profile(props) {
     const [formData,setFormData] = React.useState({
         prix:"",
         description:"",
-        service:"",
-        email:props.user.email
+        service: props.serviceName.serviceId,
+        email: props.user ? props.user.email : ""
         })
         function handleChange(event){
         setFormData(old => {

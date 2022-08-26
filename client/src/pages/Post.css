@@ -96,14 +96,13 @@
     border-radius: 15px;
     -webkit-box-shadow: 0 0.25rem 1rem 0 rgba(47, 91, 234, 0.125);
     box-shadow: 0 0.25rem 1rem 0 rgba(47, 91, 234, 0.125);
-    width: 1000px;
+    width: 800px;
     margin: auto;
     /* height: 800px !important; */
 }
 .container{
     margin: 40px 0 40px 0;
     cursor: pointer;
-    
 }
 
 .single_advisor_profile .advisor_thumb {
