@@ -99,10 +99,10 @@
     width: 800px;
     margin: auto;
     /* height: 800px !important; */
+    cursor: pointer;
 }
 .container{
     margin: 40px 0 40px 0;
-    cursor: pointer;
 }
 
 .single_advisor_profile .advisor_thumb {

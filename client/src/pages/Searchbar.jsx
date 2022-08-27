@@ -61,7 +61,7 @@ export default function Searchbar() {
         <div className="dataResult">
           {filteredData.slice(0, 8).map((value) => {
             return (
-                <div onClick={()=>navigate('/profile/'+value.id) } className="seachitem">
+                <div onClick={()=>navigate('/profile/'+value.id) } className="searchitem">
                 <p>{value.utilisateur} </p>
                 </div>
             );

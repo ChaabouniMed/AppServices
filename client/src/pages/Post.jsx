@@ -4,12 +4,10 @@ import './Post.css'
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 export default function Post(props)
 {
-    console.log('2')
     const [link , setlink] = useState("https://bootdey.com/img/Content/avatar/avatar1.png")
     useEffect(()=>{
-        console.log('image')
     const storage = getStorage();
-    const starsRef = ref(storage, props.useruid +'.png');
+    const starsRef = ref(storage, props.post.useruid +'.png');
     getDownloadURL(starsRef).then((url) => {setlink(url)}).catch((error)=>console.log("Pas d'image"))
 },[])
 
@@ -25,7 +23,7 @@ export default function Post(props)
     <div>
     {/* <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" /> */}
 
-    <div className="container">
+    <div className="container" style={{color:'black',cursor:'default'}}>
         <div className="col-12 col-sm-6 col-lg-3">
             <div className="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s" style={{visibility: "visible", animationDelay: "0.2s", animationName: "fadeInUp"}}>
                 <div className="advisor_thumb">
@@ -39,14 +37,13 @@ export default function Post(props)
                     </div> */}
                 </div>
                 <div className="single_advisor_details_info">
-                <h3>{props.title}</h3>
-                <p className="designation">{props.text}</p>
-                <p>{props.owner}</p>
+                <h3>{props.post.service}</h3>
+                <p className="designation">{props.post.description}</p>
+                <p>{props.post.prix}</p>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
     )
 }

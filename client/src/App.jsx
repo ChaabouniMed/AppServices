@@ -15,6 +15,7 @@ import Searchbar from './pages/Searchbar'
 import ProtectedRoute from './pages/ProtectedRoute';
 import Createpost from './pages/Createpost' ;
 import SingleService from './pages/SingleService'
+import Profile from './pages/profile';
 import {useEffect} from 'react' 
 import {onAuthStateChanged} from "firebase/auth";
 import { auth } from "./firebase-config";
@@ -91,9 +92,8 @@ function App() {
         <Route path='login' element={<FormSeConn setUser={setUser} user={user}/>} />
         <Route path='signin' element={<FormNewAcc setUser={setUser} user={user} />} />
         <Route path='*' element={<Error currentUser={currentUser} />} />
-        <Route path='settings' element={
-          <Settings currentUser={currentUser} user={user} />
-        } />
+        <Route path='settings' element={<Settings currentUser={currentUser} user={user} />} />
+        <Route path='profile/:profileId' element={<Profile />} />
         <Route path='creerpost' element ={<Createpost currentUser={currentUser} user={user} serviceName={serviceName}/>}/>
         </Route>
         
