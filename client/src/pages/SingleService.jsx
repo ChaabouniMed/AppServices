@@ -7,37 +7,52 @@ import { db } from "../firebase-config";
 import  Post  from './Post' 
 import './Post.css'
 
-export default function SingleService({serviceName,setServiceName}) {
+export default function SingleService(props) {
 
   const [postLists, setPostList] = useState([]);
   const postsCollectionRef = collection(db, "posts");
   const navigate = useNavigate()
 
     const {serviceId} = useParams()
-    console.log(serviceId)
-    useEffect(() => {setServiceName({serviceId})},[serviceId])
+    useEffect(() => {props.setServiceName({serviceId})},[serviceId])
     let currentService = {}
     Data.forEach((service) => {
         if(service.name == serviceId) currentService = service
     })
+
+    const deletePost = async (id) => {
+      const postDoc = doc(db, "posts", id);
+      await deleteDoc(postDoc);
+    };
 
     useEffect(() => {
       const getPosts = async () => {
         const data = await getDocs(postsCollectionRef);
         setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       };
-  
       getPosts();
-    }, []);
+    }, [deletePost]);
+
+    const posts = postLists.map((post) => { if (post.service == serviceId)
+      return (
+      <div>
+      <Post  email={post.email} uid={post.uid} deletePost={deletePost} title={post.service} text={post.description} owner={post.prix} photo={post.photo?post.photo : 'https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg'}  />
+      {props.user?.email == post.email && <button
+                    onClick={() => {
+                      deletePost(post.id).then(navigate('/services/'+serviceId));
+                    }}
+                  ></button>}
+      </div>
+      )
+    })
+
   return (
     <div className='post-big-container'>
 
       <button onClick={()=>navigate('/creerpost')}>Créer post</button>
         {/* <img src={currentService.src} alt="" /> */}
         <div className="post-list containerAll">
-          {postLists.map((post) => { if (post.service == serviceId)
-            return <Post title={post.service} text={post.description} owner={post.prix} photo={post.photo?post.photo : 'https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg'}  />
-          })}
+          {posts}
         </div>
     </div>
   )

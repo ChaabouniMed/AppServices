@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import SharedLayout from './pages/SharedLayout';
 import Error from './pages/Error';
 import Settings from './pages/Settings'
+import Searchbar from './pages/Searchbar'
 import ProtectedRoute from './pages/ProtectedRoute';
 import Createpost from './pages/Createpost' ;
 import SingleService from './pages/SingleService'
@@ -86,8 +87,8 @@ function App() {
         <Route path='/' element={<SharedLayout currentUser={currentUser}/>}>
         <Route index element={<Home currentUser={currentUser} />} />
         {/* <Route path="profile/services/:serviceId" element={<SingleService />} /> */}
-        <Route path="services/:serviceId" element={<SingleService serviceName={serviceName} setServiceName={setServiceName}/>} />
-        <Route path='login' element={<FormSeConn setUser={setUser}/>} />
+        <Route path="services/:serviceId" element={<SingleService serviceName={serviceName} setServiceName={setServiceName} user={user}/>} />
+        <Route path='login' element={<FormSeConn setUser={setUser} user={user}/>} />
         <Route path='signin' element={<FormNewAcc setUser={setUser} user={user} />} />
         <Route path='*' element={<Error currentUser={currentUser} />} />
         <Route path='settings' element={

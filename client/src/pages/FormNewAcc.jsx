@@ -33,6 +33,13 @@ export default function FormNewAcc(props){
             })
     //-------------------- DataBase functions
 
+    const navigate= useNavigate()
+    useEffect(() => {
+        if (props.user) {
+            navigate("/");            
+        }
+    }
+    ,[props.user]);
 
 
 const usersCollectionRef = collection(db, "users");
@@ -45,7 +52,7 @@ const usersCollectionRef = collection(db, "users");
         formData.email,
         formData.mdp
         )
-        const docRef = doc(db, "users", formData.email );
+        const docRef = doc(db, "users", auth.currentUser.uid ); //formData.email
         setDoc(docRef, formData).then(() => {
             console.log("Document has been added successfully")
             navigate('/')
@@ -72,7 +79,7 @@ const usersCollectionRef = collection(db, "users");
     //     console.log(error.message);
     //   }
     // };
-    const navigate = useNavigate()
+
     const logout = async () => {
     await signOut(auth);
     navigate('/')

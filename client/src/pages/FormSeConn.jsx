@@ -15,8 +15,13 @@ export default function FormNewAccount(props){
         email:"",
         mdp:""
     })
-
-    const navigate = useNavigate()
+    const navigate= useNavigate()
+    useEffect(() => {
+        if (props.user) {
+            navigate("/");            
+        }
+    }
+    ,[props.user]);
     useEffect(() => {
         onAuthStateChanged(auth, (currentUser) => {
             props.setUser(currentUser);

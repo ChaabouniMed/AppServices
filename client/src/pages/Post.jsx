@@ -1,7 +1,16 @@
 import React from 'react'
+import { useState , useEffect } from 'react';
 import './Post.css'
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 export default function Post(props)
 {
+    const [link , setlink] = useState("https://bootdey.com/img/Content/avatar/avatar1.png")
+    useEffect(()=>{
+    const storage = getStorage();
+    const starsRef = ref(storage, props.email +'.png');
+    getDownloadURL(starsRef).then((url) => {setlink(url)}).catch((error)=>console.log("Pas d'image"))
+},[])
+
     return (
     // <div className='post-container'>
     //     <img src={props.photo} alt="image" />
@@ -18,7 +27,7 @@ export default function Post(props)
         <div className="col-12 col-sm-6 col-lg-3">
             <div className="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s" style={{visibility: "visible", animationDelay: "0.2s", animationName: "fadeInUp"}}>
                 <div className="advisor_thumb">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
+                    <img src={link} alt="" />
                     {/* <div className="social-info">
                         <a href="#">
                         <i className="fa fa-facebook"></i></a><a href="#">
@@ -35,6 +44,7 @@ export default function Post(props)
             </div>
         </div>
     </div>
+
 </div>
     )
 }
