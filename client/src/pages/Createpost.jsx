@@ -27,7 +27,8 @@ export default function Createpost(props) {
         prix:"",
         description:"",
         service: props.serviceName.serviceId,
-        email: props.user ? props.user.email : ""
+        email: props.user ? props.user.email : "" ,
+        useruid : props.user? props.user.uid :""
         })
         function handleChange(event){
         setFormData(old => {

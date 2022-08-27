@@ -48,11 +48,11 @@ export default function Settings(props) {
             
           }
           const handleSubmit = async () => {
-            const docRef = doc(db, "users", props.user.email );
+            const docRef = doc(db, "users", props.user.uid );
             setDoc(docRef, formData , {merge :true}).then(() => {
               console.log("Document has been added successfully")
             })            
-              const fileRef = ref(storage,props.user.email+'.png');
+              const fileRef = ref(storage,props.user.uid+'.png');
               uploadBytes(fileRef, photo).then(snapshot =>{navigate('/')}) 
           }
 return (

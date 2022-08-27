@@ -4,10 +4,12 @@ import './Post.css'
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 export default function Post(props)
 {
+    console.log('2')
     const [link , setlink] = useState("https://bootdey.com/img/Content/avatar/avatar1.png")
     useEffect(()=>{
+        console.log('image')
     const storage = getStorage();
-    const starsRef = ref(storage, props.email +'.png');
+    const starsRef = ref(storage, props.useruid +'.png');
     getDownloadURL(starsRef).then((url) => {setlink(url)}).catch((error)=>console.log("Pas d'image"))
 },[])
 

@@ -24,19 +24,19 @@ export default function SingleService(props) {
       const postDoc = doc(db, "posts", id);
       await deleteDoc(postDoc);
     };
-
+    console.log('signlepage')
     useEffect(() => {
       const getPosts = async () => {
         const data = await getDocs(postsCollectionRef);
         setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       };
       getPosts();
-    }, [deletePost]);
+    }, []);
 
     const posts = postLists.map((post) => { if (post.service == serviceId)
       return (
       <div>
-      <Post  email={post.email} uid={post.uid} deletePost={deletePost} title={post.service} text={post.description} owner={post.prix} photo={post.photo?post.photo : 'https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg'}  />
+      <Post  useruid={post.useruid} uid={post.uid} deletePost={deletePost} title={post.service} text={post.description} owner={post.prix} photo={post.photo?post.photo : 'https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg'}  />
       {props.user?.email == post.email && <button
                     onClick={() => {
                       deletePost(post.id).then(navigate('/services/'+serviceId));
