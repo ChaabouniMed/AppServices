@@ -15,7 +15,7 @@ import Searchbar from './pages/Searchbar'
 import ProtectedRoute from './pages/ProtectedRoute';
 import Createpost from './pages/Createpost' ;
 import SingleService from './pages/SingleService'
-import Profile from './pages/profile';
+import Profile from './pages/Profile';
 import {useEffect} from 'react' 
 import {onAuthStateChanged} from "firebase/auth";
 import { auth } from "./firebase-config";

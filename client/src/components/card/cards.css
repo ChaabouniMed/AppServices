@@ -24,7 +24,7 @@
     cursor: pointer;
     width: fit-content;
     height: fit-content;
-    margin-right: 100px;
+    /* margin-right: 100px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,19 +38,29 @@
 
 .name{
     max-width: 100px;
-    cursor: pointer;
+    /* cursor: pointer; */
     font-weight: 600;
     font-size: 17px;
 }
 /*----------AllCards---------*/
 
-.cards--container{
+/* .cards--container{
     display: flex;
     flex-wrap: wrap;
     padding: 40px 0 10px 70px;
     justify-content: center;
-    align-items: center;
-    /* margin-top: 20px; */
+    align-items: center; */
+    /*==== margin-top: 20px; */
+    /* text-align: center;
+}  */
+.cards--container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    width: 92% !important;
+    padding: 40px 0 10px 70px;
+    /* justify-content: center;
+    align-items: center; */
+    margin-top: 20px;
     text-align: center;
 }
 

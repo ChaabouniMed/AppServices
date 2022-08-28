@@ -9,9 +9,6 @@
 .user-card-full {
   overflow: hidden;
 }
-.row{
-  display: flex;
-}
 
 .card {
   border-radius: 5px;
@@ -49,7 +46,11 @@
 }
 
 .col-sm-6{
-  margin-right: 100px;
+  /* padding-right: 150px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
 }
 
 .col-sm-8{
@@ -58,8 +59,15 @@
 }
 
 .row{
+  display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+.row1{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 50px;
+  margin-left: 50px;
 }
 
 .card-block {
