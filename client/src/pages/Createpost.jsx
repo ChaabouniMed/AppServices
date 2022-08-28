@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import {useEffect} from 'react'
+import {useEffect , useState} from 'react'
 import {
 collection,
 getDocs,
@@ -20,9 +20,10 @@ export default function Createpost(props) {
         if (!props.user) {
             navigate("/login");            
         }
+        
     }
     ,[props.user]);
-
+    const [buttonstatus, setbuttonstatus] = useState(true)
     const [formData,setFormData] = React.useState({
         prix:"",
         description:"",
@@ -82,7 +83,7 @@ return (
                             onChange={handleChange}
                             required
                         />
-                        <button onClick={handleSubmit} type="button" >Valider</button>
+                        <button onClick={handleSubmit} disabled={!buttonstatus} type="button" >Valider</button>
                     </form>
             </div>
         </div>
