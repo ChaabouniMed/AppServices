@@ -38,12 +38,12 @@ export default function SingleService(props) {
       <div>
         <Link to={`/profile/${post.useruid}`}>
       <Post  post={post} />
+      </Link>
       {props.user?.email == post.email && <button
                     onClick={() => {
                       deletePost(post.id).then(navigate('/services/'+serviceId));
                     }}
                   ></button>}
-        </Link>
       </div>
       )
     })
