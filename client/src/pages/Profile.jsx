@@ -1,10 +1,56 @@
 import React from 'react'
 import './profile.css'
 import { useParams } from 'react-router-dom'
-
+import { getDocs, collection, deleteDoc, doc, getDoc } from "firebase/firestore";
+import { useEffect ,useState} from 'react';
+import { db } from "../firebase-config";
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import  Post  from './Post' 
+import './Post.css'
 export default function Profile() {
     const {profileId} = useParams()
-return (
+    const [services , setservices] = useState([])
+    const [postLists, setPostList] = useState([]);
+    const [link , setlink] = useState("https://img.icons8.com/bubbles/100/000000/user.png")
+    const [userDoc ,setuserDoc] = useState({})
+    const docref = doc(db, "users", profileId);
+    const postsCollectionRef = collection(db, "posts");
+    useEffect(()=>{
+        const storage = getStorage();
+        const starsRef = ref(storage, profileId +'.png');
+        getDownloadURL(starsRef).then((url) => {setlink(url)}).catch((error)=>console.log("Pas d'image"))
+    },[])
+    useEffect(() => {
+        const getuser = async () => {
+          const data = await getDoc(docref);
+          setuserDoc(data.data());
+        };
+        const getPosts = async () => {
+            const data = await getDocs(postsCollectionRef);
+            setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+            
+          };
+        getPosts();
+        getuser()
+    }, []);
+    const deletePost = async (id) => {
+        const postDoc = doc(db, "posts", id);
+        await deleteDoc(postDoc);
+      };
+    
+    const posts = postLists.map((post) => { if (post.useruid == profileId)
+        return (
+        <div>
+        <Post  post={post} />
+        <button
+                      onClick={() => {
+                        deletePost(post.id).then(console.log('post deleted'));
+                      }}
+                    ></button>
+        </div>
+        )
+      })
+    return (
     <div className="page-content page-container" id="page-content">
     <div className="padding">
         <div className="row container d-flex justify-content-center">
@@ -14,10 +60,10 @@ return (
                         <div className="col-sm-4 bg-c-lite-green user-profile">
                             <div className="card-block text-center text-white">
                                 <div className="m-b-25">
-                                    <img src="https://img.icons8.com/bubbles/100/000000/user.png" className="img-radius" alt="User-Profile-Image"/>
+                                    <img src={link} height='60px' className="img-radius" alt="User-Profile-Image"/>
                                 </div>
-                                <h6 className="f-w-600">Hembo Tingor</h6>
-                                <p>Web Designer</p>
+                                <h6 className="f-w-600">{userDoc.nom} {userDoc.prénom}</h6>
+                                <p>{userDoc.utilisateur}</p>
                                 <i className=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                             </div>
                         </div>
@@ -27,26 +73,26 @@ return (
                                 <div className="row1">
                                     <div className="col-sm-6">
                                         <p className="m-b-10 f-w-600">Email</p>
-                                        <h6 className="text-muted f-w-400">mohamed.chaabouni@ensi-uma.tn</h6>
+                                        <h6 className="text-muted f-w-400">{userDoc.email}</h6>
                                     </div>
                                     <div className="col-sm-6">
                                         <p className="m-b-10 f-w-600">Phone</p>
-                                        <h6 className="text-muted f-w-400">98979989898</h6>
+                                        <h6 className="text-muted f-w-400">{userDoc.numero}</h6>
                                     </div>
                                     <div className="col-sm-6">
                                         <p className="m-b-10 f-w-600">Ville</p>
-                                        <h6 className="text-muted f-w-400">98979989898</h6>
+                                        <h6 className="text-muted f-w-400">{userDoc.ville}</h6>
                                     </div>
                                     <div className="col-sm-6">
                                         <p className="m-b-10 f-w-600">Age</p>
-                                        <h6 className="text-muted f-w-400">98979989898</h6>
+                                        <h6 className="text-muted f-w-400">{userDoc.age}</h6>
                                     </div>
                                 </div>
                                 <h6 className="m-b-20 m-t-40 p-b-5 b-b-default f-w-600"></h6>
                                 <div className="row1">
                                     <div className="col-sm-6">
                                         <p className="m-b-10 f-w-600">Services</p>
-                                        <h6 className="text-muted f-w-400">Sam Disuja</h6>
+                                        <h6 className="text-muted f-w-400">{services}</h6>
                                     </div>
                                     <div className="col-sm-6">
                                         <p className="m-b-10 f-w-600">Rating</p>
@@ -65,6 +111,7 @@ return (
             </div>
         </div>
     </div>
+    {posts}
 </div>
 )
 }

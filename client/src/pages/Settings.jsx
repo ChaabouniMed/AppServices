@@ -25,7 +25,8 @@ export default function Settings(props) {
       const [formData,setFormData] = React.useState({
         numero:"",
         facebook:"",
-        ville:""
+        ville:"",
+        age:""
         })
         const [file, setFile] = useState();
         function handlePictureChange(event)
@@ -42,10 +43,6 @@ export default function Settings(props) {
               [event.target.name]: event.target.value
               }
             })
-          }
-          function handleDateChange()
-          {
-            
           }
           const handleSubmit = async () => {
             const docRef = doc(db, "users", props.user.uid );
@@ -88,11 +85,11 @@ return (
                         onChange={handleChange}
                         required
                     />
-                    <label htmlFor="nom">Date de naissance</label>
+                    <label htmlFor="nom">Age</label>
                     <input
-                      type='date'
-                      name='dateDeNaissance'
-                      onChange={handleDateChange}
+                      type='age'
+                      name='age'
+                      onChange={handleChange}
                     />
                     <label htmlFor="nom">Photo de profil</label>
                     <input 

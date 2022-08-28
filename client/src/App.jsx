@@ -74,7 +74,7 @@ function App() {
   //   getUsers();
   // }, []);
   
-        console.log(currentUser)
+        // console.log(currentUser)
   return (
     <div>
       {/* <Navbar />
