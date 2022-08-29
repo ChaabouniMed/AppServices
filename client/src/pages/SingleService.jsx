@@ -8,6 +8,8 @@ import  Post  from './Post'
 import './Post.css'
 
 export default function SingleService(props) {
+  const townList = ["--","Sfax" , "Tunis"]
+  const [ville,setville]= useState("--")
 
   const [postLists, setPostList] = useState([]);
   const postsCollectionRef = collection(db, "posts");
@@ -32,12 +34,18 @@ export default function SingleService(props) {
       };
       getPosts();
     }, []);
+    function handleChange (event)
+    {
+      setville(event.target.value)
 
-    const posts = postLists.map((post) => { if (post.service == serviceId)
+    }
+
+    const posts = postLists.map((post) => { if ((post.service == serviceId) && ((post.ville.toLowerCase()==ville.toLowerCase()) || (ville.toLowerCase()=="--")))
+    
       return (
       <div>
         <Link to={`/profile/${post.useruid}`}>
-      <Post  post={post} />
+      <Post  post={post}/>
       </Link>
       {props.user?.email == post.email && <button
                     onClick={() => {
@@ -55,6 +63,17 @@ export default function SingleService(props) {
       <button>Créer post</button>
         {/* <img src={currentService.src} alt="" /> */}
     </Link>
+    <select 
+        className='select'
+        value={ville}
+        onChange={handleChange}
+        name="ville"
+        required
+    >
+    {townList.map((town) => {
+        return <option value={town}>{town} </option>
+        })}
+    </select>
         <div className="post-list containerAll">
           {posts}
         </div>

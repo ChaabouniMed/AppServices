@@ -4,7 +4,7 @@ import './Post.css'
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 export default function Post(props)
 {
-    const [link , setlink] = useState("https://bootdey.com/img/Content/avatar/avatar1.png")
+    const [link , setlink] = useState("")
     useEffect(()=>{
     const storage = getStorage();
     const starsRef = ref(storage, props.post.useruid +'.png');
@@ -28,18 +28,21 @@ export default function Post(props)
             <div className="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s" style={{visibility: "visible", animationDelay: "0.2s", animationName: "fadeInUp"}}>
                 <div className="advisor_thumb">
                     <img src={link} height="70px" alt="" />
-                    {/* <div className="social-info">
-                        <a href="#">
-                        <i className="fa fa-facebook"></i></a><a href="#">
-                        <i className="fa fa-twitter"></i></a><a href="#">
-                        <i className="fa fa-linkedin"></i>
-                        </a>
-                    </div> */}
                 </div>
+                
                 <div className="single_advisor_details_info">
-                <h3>{props.post.service}</h3>
-                <p className="designation">{props.post.description}</p>
-                <p>{props.post.prix}</p>
+                    <div>
+                    <h4 style={{marginTop:"0"}}>{props.post.prénom} {props.post.nom}</h4> 
+                    <div className='ville'>
+                        <img src="../../public/images/position.png" alt="" className='position'/>
+                        <p>{props.post.ville}</p>
+                    </div>
+                    </div>
+                    <div>
+                        <h3>{props.post.service}</h3>
+                        <p className="designation">{props.post.description}</p>
+                        <p>{props.post.prix}</p>
+                    </div>
                 </div>
             </div>
         </div>

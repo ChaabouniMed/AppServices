@@ -29,7 +29,19 @@
     height: 100px;
     border-radius: 10px;
     margin-right: 180px;
-    margin-left: 100px;
+    margin-left: 25px;
+}
+
+.ville{
+    display: flex;
+    align-items: center;
+}
+
+.position{
+    width: 17px;
+    height: 17px;
+    margin-top: 10px;
+    margin-right: 7px;
 }
 
 .post-container
@@ -164,6 +176,8 @@
     transition-duration: 500ms;
     border-radius: 0 0 15px 15px;
     background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
 }
 .single_advisor_profile .single_advisor_details_info::after {
     -webkit-transition-duration: 500ms;

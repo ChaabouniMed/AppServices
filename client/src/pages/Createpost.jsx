@@ -20,7 +20,7 @@ export default function Createpost(props) {
         if (!props.user) {
             navigate("/login");            
         }
-        else if (props.currentUser.numero == undefined) navigate("/settings"); 
+        // else if (props.currentUser.numero == undefined) navigate("/settings"); 
         
     }
     ,[props.user]);
@@ -30,7 +30,11 @@ export default function Createpost(props) {
         description:"",
         service: props.serviceName.serviceId,
         email: props.user ? props.user.email : "" ,
-        useruid : props.user? props.user.uid :""
+        useruid : props.user? props.user.uid :"",
+        ville : props.currentUser? props.currentUser.ville : "",
+        nom : props.currentUser? props.currentUser.nom : "",
+        prénom : props.currentUser? props.currentUser.prénom : "",
+
         })
         function handleChange(event){
         setFormData(old => {
@@ -42,11 +46,11 @@ export default function Createpost(props) {
         }
 
         const handleSubmit = async (e) => {
-            e.preventDefault
+            e.preventDefault()
                 const docRef = collection(db, "posts");
                 addDoc(docRef, formData).then(() => {
                     console.log("Document has been added successfully")
-                    navigate("/");
+                    navigate(`/services/${props.serviceName.serviceId}`);
                 })
             }
 
@@ -84,7 +88,6 @@ return (
                             placeholder="00/hr"
                             value={formData.prix}
                             onChange={handleChange}
-                            required
                         />
                         <button disabled={!buttonstatus}>Valider</button>
                     </form>

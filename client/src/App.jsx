@@ -34,7 +34,6 @@ function App() {
   const [user, setUser] = useState({});
   // console.log(user)
   const usersCollectionRef = collection(db, "users");
-  let currentUtili
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       // console.log(currentUser)
