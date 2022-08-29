@@ -28,6 +28,14 @@
 
 .user-card-full .user-profile {
   border-radius: 5px 0 0 5px;
+  text-align: center;
+  color: white;
+  /* position: relative; */
+}
+
+.user-card-full .user-profile p{
+  font-size: 17px;
+  font-weight: 300;
 }
 
 .bg-c-lite-green {
@@ -72,6 +80,7 @@
 
 .card-block {
   padding: 1.25rem;
+  /* text-align: center; */
 }
 
 .m-b-25 {
@@ -79,10 +88,18 @@
 }
 
 .img-radius {
-  border-radius: 5px;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
 }
 
-
+.fb{
+  height: 30px;
+  width: 30px;
+  /* position: absolute;
+  bottom: 50px; */
+  /* margin: 20px; */
+}
 
 h6 {
   font-size: 14px;

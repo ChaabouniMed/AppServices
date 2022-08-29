@@ -51,8 +51,10 @@ export default function SingleService(props) {
   return (
     <div className='post-big-container'>
 
-      <button onClick={()=>navigate('/creerpost')}>Créer post</button>
+    <Link to='/creerpost'>
+      <button>Créer post</button>
         {/* <img src={currentService.src} alt="" /> */}
+    </Link>
         <div className="post-list containerAll">
           {posts}
         </div>

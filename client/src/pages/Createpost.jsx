@@ -20,6 +20,7 @@ export default function Createpost(props) {
         if (!props.user) {
             navigate("/login");            
         }
+        else if (props.currentUser.numero == undefined) navigate("/settings"); 
         
     }
     ,[props.user]);

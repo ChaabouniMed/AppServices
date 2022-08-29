@@ -36,20 +36,20 @@ export default function Profile() {
     const deletePost = async (id) => {
         const postDoc = doc(db, "posts", id);
         await deleteDoc(postDoc);
-      };
+    };
     
     const posts = postLists.map((post) => { if (post.useruid == profileId)
         return (
         <div>
         <Post  post={post} />
-        <button
-                      onClick={() => {
-                        deletePost(post.id).then(console.log('post deleted'));
-                      }}
-                    ></button>
+        {/* <button
+            onClick={() => {
+            deletePost(post.id).then(console.log('post deleted'));
+            }}>
+        </button> */}
         </div>
         )
-      })
+    })
     return (
     <div className="page-content page-container" id="page-content">
     <div className="padding">
@@ -60,11 +60,11 @@ export default function Profile() {
                         <div className="col-sm-4 bg-c-lite-green user-profile">
                             <div className="card-block text-center text-white">
                                 <div className="m-b-25">
-                                    <img src={link} height='60px' className="img-radius" alt="User-Profile-Image"/>
+                                    <img src={link} className="img-radius" alt="User-Profile-Image"/>
                                 </div>
-                                <h6 className="f-w-600">{userDoc.nom} {userDoc.prénom}</h6>
+                                <h3 className="f-w-600">{userDoc.nom} {userDoc.prénom}</h3>
                                 <p>{userDoc.utilisateur}</p>
-                                <i className=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                                <a href={userDoc.facebook? userDoc.facebook : "/error"} target="_blank"><img src="../../public/images/facebook.png" alt="" className='fb'/></a> 
                             </div>
                         </div>
                         <div className="col-sm-8">
