@@ -41,7 +41,8 @@ export default function Createpost(props) {
             })
         }
 
-        const handleSubmit = async () => {
+        const handleSubmit = async (e) => {
+            e.preventDefault
                 const docRef = collection(db, "posts");
                 addDoc(docRef, formData).then(() => {
                     console.log("Document has been added successfully")
@@ -54,13 +55,14 @@ return (
         <div className='container1' style={{height:"100vh"}}>
             <div className="form--container">
                 <h1 className='title'>Créer un post</h1>
-                    <form action="">
+                    <form onSubmit={handleSubmit}>
                         <label className='first--input'>Service</label>
                         <select 
                             className='select'
                             value={formData.service}
                             onChange={handleChange}
                             name="service"
+                            required
                         >
                         {DataBig.map((service) => {
                             return <option value={service.name}>{service.name} </option>
@@ -84,7 +86,7 @@ return (
                             onChange={handleChange}
                             required
                         />
-                        <button onClick={handleSubmit} disabled={!buttonstatus} type="button" >Valider</button>
+                        <button disabled={!buttonstatus}>Valider</button>
                     </form>
             </div>
         </div>

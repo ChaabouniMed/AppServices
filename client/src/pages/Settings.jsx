@@ -44,7 +44,8 @@ export default function Settings(props) {
               }
             })
           }
-          const handleSubmit = async () => {
+          const handleSubmit = async (e) => {
+            e.preventDefault()
             const docRef = doc(db, "users", props.user.uid );
             setDoc(docRef, formData , {merge :true}).then(() => {
               console.log("Document has been added successfully")
@@ -57,7 +58,7 @@ return (
         <div className='container1'>
             <div className="form--container">
                 <h1 className='title'>Settings</h1>
-                    <form action="">
+                    <form onSubmit={handleSubmit}>
                     <label htmlFor="nom" className='first--input'>Numero de telephone</label>
                     <input 
                         type="text" 
@@ -89,16 +90,20 @@ return (
                     <input
                       type='age'
                       name='age'
+                      placeholder='Ton age'
+                      value={formData.age}
                       onChange={handleChange}
+                      required
                     />
                     <label htmlFor="nom">Photo de profil</label>
                     <input 
                         type="file" 
                         name='photo'
                         onChange={handlePictureChange}
+                        required
                     />
                     <img src={file} alt="image" />
-                    <button onClick={handleSubmit} type="button" >Valider</button>
+                    <button>Valider</button>
                     </form>
             </div>
         </div>

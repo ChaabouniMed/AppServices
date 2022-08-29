@@ -40,7 +40,8 @@ export default function FormNewAccount(props){
         })
     }
         // -------- DataBase functions 
-    const login = async () => {
+    const login = async (e) => {
+        e.preventDefault()
         try {
         const user = await signInWithEmailAndPassword(
             auth,
@@ -61,7 +62,7 @@ export default function FormNewAccount(props){
         <div className='container2'>
             <div className="form--container">
                 <h1 className='title'>Welcome Back to</h1>
-                <form action="">
+                <form onSubmit={login}>
                     <label htmlFor="email" className='first--input'>E-mail adresse</label>
                     <input 
                         type="email" 
@@ -89,7 +90,7 @@ export default function FormNewAccount(props){
                         />
                     </div>
                     <p style={{fontSize:"15px"}}>Vous n'avez pas un compte ? <Link to="/signin" style={{color:"#563E5B",borderBottom:"1px solid #563E5B"}}>Créer maintenant</Link></p> 
-                    <button type="button" onClick={login}>s'identifier</button>
+                    <button>s'identifier</button>
                 </form>
             </div>
         </div>

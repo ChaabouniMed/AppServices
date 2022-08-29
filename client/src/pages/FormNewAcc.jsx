@@ -44,7 +44,8 @@ export default function FormNewAcc(props){
 
 const usersCollectionRef = collection(db, "users");
 
-    const register = async () => {
+    const register = async (e) => {
+        e.preventDefault()
     try {
 
         const user = await createUserWithEmailAndPassword(
@@ -101,7 +102,7 @@ const usersCollectionRef = collection(db, "users");
         <div className='container1'>
             <div className="form--container">
                 <h1 className='title'>Inscription</h1>
-                    <form action="">
+                    <form onSubmit={register}>
                     <label htmlFor="nom" className='first--input'>Nom d'utilisateur</label>
                     <input 
                         type="text" 
@@ -156,7 +157,7 @@ const usersCollectionRef = collection(db, "users");
                         />
                     </div>
                     <p style={{fontSize:"15px"}}>Vous avez déjà un compte ? <Link to="/login" style={{color:"#563E5B",borderBottom:"1px solid #563E5B"}}>connecter maintenant</Link></p> 
-                    <button onClick={register} type="button" >S'inscrire</button>
+                    <button>S'inscrire</button>
                     </form>
             </div>
         </div>
