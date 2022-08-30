@@ -5,7 +5,7 @@ import {signOut} from "firebase/auth";
 import { auth } from "../../firebase-config";
 import { useNavigate } from 'react-router-dom';
 
-export default function NavbarProfile({currentUser})
+export default function NavbarProfile({currentUser, user})
             {
                 const [droping,setDroping] = React.useState(true)
                 const navigate = useNavigate()
@@ -39,6 +39,9 @@ export default function NavbarProfile({currentUser})
                             </ul>
                         </div>
                         <ul className={droping ? "dropdown--none" : "dropdown"}>
+                            <Link to={`/profile/${user.uid}`}>
+                                <li onClick={() => setDroping(true)}>profile</li>
+                            </Link>
                             <Link to="/settings">
                                 <li onClick={() => setDroping(true)}>Settings</li>
                             </Link>

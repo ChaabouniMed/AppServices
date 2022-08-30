@@ -9,9 +9,9 @@ import  Post  from './Post'
 import './Post.css'
 export default function Profile(props) {
     const {profileId} = useParams()
-    const [services , setservices] = useState([])
+    const [afficherService , setAfficherService] = useState(false)
     const [postLists, setPostList] = useState([]);
-    const [link , setlink] = useState("https://img.icons8.com/bubbles/100/000000/user.png")
+    const [link , setlink] = useState("")
     const [userDoc ,setuserDoc] = useState({})
     const docref = doc(db, "users", profileId);
     const postsCollectionRef = collection(db, "posts");
@@ -43,12 +43,16 @@ export default function Profile(props) {
         <div className='posts'>
         <Post  post={post} />
         {props.user?.email == post.email && 
-          <img className='delete--img' src="../../public/images/delete.png" alt=""  onClick={() => {
-                deletePost(post.id).then(navigate('/services/'+serviceId));
-              }}/>}
+            <img className='delete--img' src="../../public/images/delete.png" alt=""  onClick={async () => {
+                await deletePost(post.id).then(navigate('/services/'+serviceId));
+                }}/>}
         </div>
         )
     })
+    function handleClick ()
+    {
+        setAfficherService((old)=>{return !old})
+    }
     return (
     <div className="page-content page-container" id="page-content">
     <div className="padding">
@@ -91,7 +95,9 @@ export default function Profile(props) {
                                 <div className="row1">
                                     <div className="col-sm-6">
                                         <p className="m-b-10 f-w-600">Services</p>
-                                        <h6 className="text-muted f-w-400">{services}</h6>
+                                        <h6 className="text-muted f-w-400 show" onClick={handleClick}  >
+                                            {afficherService ?"Masquer":"Afficher ci dessous"}
+                                        </h6>
                                     </div>
                                     <div className="col-sm-6">
                                         <p className="m-b-10 f-w-600">Rating</p>
@@ -105,7 +111,7 @@ export default function Profile(props) {
             </div>
         </div>
     </div>
-    {posts}
+    {afficherService && posts}
 </div>
 )
-}
+    }

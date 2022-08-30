@@ -84,7 +84,7 @@ function App() {
       <Footer /> */}
       <BrowserRouter>
       <Routes>
-        <Route path='/' element={<SharedLayout currentUser={currentUser}/>}>
+        <Route path='/' element={<SharedLayout currentUser={currentUser} user={user}/>}>
         <Route index element={<Home currentUser={currentUser} />} />
         {/* <Route path="profile/services/:serviceId" element={<SingleService />} /> */}
         <Route path="services/:serviceId" element={<SingleService serviceName={serviceName} setServiceName={setServiceName} user={user}/>} />
@@ -93,6 +93,7 @@ function App() {
         <Route path='*' element={<Error currentUser={currentUser} />} />
         <Route path='settings' element={<Settings currentUser={currentUser} user={user} />} />
         <Route path='profile/:profileId' element={<Profile user={user}/>} />
+        <Route path='profile/:profileId' element={<Profile user={user} />} />
         <Route path='creerpost' element ={<Createpost currentUser={currentUser} user={user} serviceName={serviceName}/>}/>
         </Route>
         

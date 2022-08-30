@@ -187,5 +187,16 @@ p {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
+.show:hover
+{
+  cursor: pointer;
+
+}
+.show
+{
+  border-bottom: 1px solid #919aa3;
+  display: inline-block;
+  width: fit-content;
+}
 
 

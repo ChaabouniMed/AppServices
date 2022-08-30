@@ -51,7 +51,7 @@
 .posts{
     display: flex;
     align-items:flex-end;
-    margin: auto;
+    justify-content: center;
 }
 
 .delete--img{
