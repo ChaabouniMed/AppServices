@@ -47,6 +47,7 @@ export default function Createpost(props) {
 
         const handleSubmit = async (e) => {
             e.preventDefault()
+            setbuttonstatus(false)
                 const docRef = collection(db, "posts");
                 addDoc(docRef, formData).then(() => {
                     console.log("Document has been added successfully")

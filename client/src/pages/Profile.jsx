@@ -7,9 +7,9 @@ import { db } from "../firebase-config";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import  Post  from './Post' 
 import './Post.css'
-export default function Profile() {
+export default function Profile(props) {
     const {profileId} = useParams()
-    const [services , setservices] = useState([])
+    const [afficherService , setAfficherService] = useState(false)
     const [postLists, setPostList] = useState([]);
     const [link , setlink] = useState("https://img.icons8.com/bubbles/100/000000/user.png")
     const [userDoc ,setuserDoc] = useState({})
@@ -42,14 +42,18 @@ export default function Profile() {
         return (
         <div>
         <Post  post={post} />
-        {/* <button
-            onClick={() => {
-            deletePost(post.id).then(console.log('post deleted'));
-            }}>
-        </button> */}
+        {props.user?.email == post.email && <button
+                    onClick={async() => {
+                      await deletePost(post.id);
+                    }}
+                  ></button>}
         </div>
         )
     })
+    function handleClick ()
+    {
+        setAfficherService((old)=>{return !old})
+    }
     return (
     <div className="page-content page-container" id="page-content">
     <div className="padding">
@@ -92,7 +96,9 @@ export default function Profile() {
                                 <div className="row1">
                                     <div className="col-sm-6">
                                         <p className="m-b-10 f-w-600">Services</p>
-                                        <h6 className="text-muted f-w-400">{services}</h6>
+                                        <h6 className="text-muted f-w-400 show" onClick={handleClick}  >
+                                            {afficherService ?"Masquer":"Afficher ci dessous"}
+                                        </h6>
                                     </div>
                                     <div className="col-sm-6">
                                         <p className="m-b-10 f-w-600">Rating</p>
@@ -106,7 +112,7 @@ export default function Profile() {
             </div>
         </div>
     </div>
-    {posts}
+    {afficherService && posts}
 </div>
 )
 }

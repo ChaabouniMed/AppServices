@@ -22,7 +22,7 @@ import {
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function FormNewAcc(props){
-
+    const [buttonstatus, setbuttonstatus] = useState(true)
     const [formData,setFormData] = React.useState({
         utilisateur:"",
         nom:"",
@@ -46,6 +46,7 @@ const usersCollectionRef = collection(db, "users");
 
     const register = async (e) => {
         e.preventDefault()
+        setbuttonstatus(false)
     try {
 
         const user = await createUserWithEmailAndPassword(
@@ -157,7 +158,7 @@ const usersCollectionRef = collection(db, "users");
                         />
                     </div>
                     <p style={{fontSize:"15px"}}>Vous avez déjà un compte ? <Link to="/login" style={{color:"#563E5B",borderBottom:"1px solid #563E5B"}}>connecter maintenant</Link></p> 
-                    <button>S'inscrire</button>
+                    <button disabled={!buttonstatus} >S'inscrire</button>
                     </form>
             </div>
         </div>
