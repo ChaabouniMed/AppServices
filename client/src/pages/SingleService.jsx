@@ -43,15 +43,14 @@ export default function SingleService(props) {
     const posts = postLists.map((post) => { if ((post.service == serviceId) && ((post.ville.toLowerCase()==ville.toLowerCase()) || (ville.toLowerCase()=="--")))
     
       return (
-      <div>
+      <div className='post'>
         <Link to={`/profile/${post.useruid}`}>
-      <Post  post={post}/>
-      </Link>
-      {props.user?.email == post.email && <button
-                    onClick={() => {
-                      deletePost(post.id).then(navigate('/services/'+serviceId));
-                    }}
-                  ></button>}
+          <Post  post={post}/>
+        </Link>
+        {props.user?.email == post.email && 
+          <img className='delete--img' src="../../public/images/delete.png" alt=""  onClick={() => {
+                deletePost(post.id).then(navigate('/services/'+serviceId));
+              }}/>}
       </div>
       )
     })

@@ -43,6 +43,23 @@
     margin-top: 10px;
     margin-right: 7px;
 }
+.post{
+    display: flex;
+    align-items:flex-end;
+}
+
+.posts{
+    display: flex;
+    align-items:flex-end;
+    margin: auto;
+}
+
+.delete--img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-bottom: 50px;
+}
 
 .post-container
 {

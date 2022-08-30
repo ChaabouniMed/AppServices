@@ -7,7 +7,7 @@ import { db } from "../firebase-config";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import  Post  from './Post' 
 import './Post.css'
-export default function Profile() {
+export default function Profile(props) {
     const {profileId} = useParams()
     const [services , setservices] = useState([])
     const [postLists, setPostList] = useState([]);
@@ -22,14 +22,14 @@ export default function Profile() {
     },[])
     useEffect(() => {
         const getuser = async () => {
-          const data = await getDoc(docref);
-          setuserDoc(data.data());
+        const data = await getDoc(docref);
+        setuserDoc(data.data());
         };
         const getPosts = async () => {
             const data = await getDocs(postsCollectionRef);
             setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
             
-          };
+        };
         getPosts();
         getuser()
     }, []);
@@ -40,13 +40,12 @@ export default function Profile() {
     
     const posts = postLists.map((post) => { if (post.useruid == profileId)
         return (
-        <div>
+        <div className='posts'>
         <Post  post={post} />
-        {/* <button
-            onClick={() => {
-            deletePost(post.id).then(console.log('post deleted'));
-            }}>
-        </button> */}
+        {props.user?.email == post.email && 
+          <img className='delete--img' src="../../public/images/delete.png" alt=""  onClick={() => {
+                deletePost(post.id).then(navigate('/services/'+serviceId));
+              }}/>}
         </div>
         )
     })
