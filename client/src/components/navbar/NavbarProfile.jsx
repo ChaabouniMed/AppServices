@@ -39,7 +39,7 @@ export default function NavbarProfile({currentUser, user})
                             </ul>
                         </div>
                         <ul className={droping ? "dropdown--none" : "dropdown"}>
-                            <Link to={`/profile/${user.uid}`}>
+                            <Link to={`/profile/${user?.uid}`}>
                                 <li onClick={() => setDroping(true)}>profile</li>
                             </Link>
                             <Link to="/settings">
@@ -54,18 +54,4 @@ export default function NavbarProfile({currentUser, user})
                         </ul>
                     </div>
                     )
-            }
-            function Search()
-            {
-                return(
-                    <div className="search-area">
-                        <div>
-                        <p className="search-title">Chercher des catégories ou des profils </p>
-                        <form >
-                            
-                            <input className="search-input" type="text"/>
-                        </form>
-                        </div>
-                    </div>
-                )
             }

@@ -1,5 +1,5 @@
 :root{
-  --backgroundColor : rgba(109,124,144,.1);
+  --backgroundColor : rgb(221,220,239);
   --maincolor : rgba(163, 79, 219, 0.74); 
   --secondarycolor : rgb(10, 85, 85);
 }
@@ -14,8 +14,8 @@ body{
   font-family: 'Inter', sans-serif;
   font-family: 'Poppins', sans-serif;
   font-family: 'Work Sans', sans-serif;
-  background-color: white;
-  margin-top: 100px;
+  background-color: rgba(236, 235, 235, 0.459);
+  /* margin-top: 100px; */
 }
 
 button{
@@ -46,7 +46,7 @@ button:hover{
 }
 
 .containerAll{
-  width: 95%;
+  width: 97%;
   margin: auto;
   background-color: var(--backgroundColor);
   border-radius: 15px;

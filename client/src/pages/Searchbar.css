@@ -1,20 +1,38 @@
 .searchInputs {
-    margin-top: 105px;
+    /* margin-top: 105px; */
     display: flex;
     position: relative;
+    box-shadow: 0px 3px 10px 4px #aaaaaa;
+    background-color: white;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border: none;
+    font-size: 18px;
+    /* padding: 15px; */
+    height: 40px;
+    width: 500px;
+    border-radius: 10px;
+  }
+
+  .searchInputs img{
+    width: 22px;
+    height: 22px;
+    /* border-right: 1px solid black; */
+    /* position: absolute; */
+    margin: auto;
+    margin-left: 13px;
+    margin-right: 10px;    
   }
   
   .search input {
-    box-shadow: 0px 3px 10px 4px #aaaaaa;
-    background-color: white;
-    border: 0;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
+    border: none;
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
     font-size: 18px;
-    padding: 15px;
-    height: 40px;
-    width: 300px;
     border-radius: 10px;
+    border-left: 2px solid rgba(109, 124, 144, 0.534);
+    padding-left: 10px;
+    width: inherit;
   }
   
   .searchIcon {
@@ -34,15 +52,17 @@
   
   .dataResult {
     margin-top: 5px;
-    width: 300px;
+    width: 500px;
     height: 200px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     overflow: hidden;
     overflow-y: auto;
     position: absolute;
-    margin-top: 150px;
+    margin-top: 45px;
+    /* margin-left: ; */
     z-index: 500;
+    border-radius: 5px;
   }
   
   .dataResult::-webkit-scrollbar {

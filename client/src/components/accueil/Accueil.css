@@ -1,0 +1,41 @@
+.accueil--img{
+    position: absolute;
+    animation: up-and-down;
+    animation-duration: 3s;
+    right: 30px;
+    animation-iteration-count: infinite;
+}
+
+.accuei-container{
+    background-color: rgb(221,220,239);
+    margin-top: 55px;
+    position: relative;
+    height: calc(100vh - 55px);
+    margin-bottom: 100px;
+}
+
+.search{
+    position: absolute;
+    left: 10%;
+    bottom: 30%;
+    /* display: flex;
+    flex-direction: column; */
+}
+.search h1{
+    /* padding-bottom: 150px; */
+    margin: 0;
+}
+
+
+
+@keyframes up-and-down {
+    0%{
+        top: 15px;
+    }
+    50%{
+        top: 30px;
+    }
+    100%{
+        top: 15px
+    }
+}

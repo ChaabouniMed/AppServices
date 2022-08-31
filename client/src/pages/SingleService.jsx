@@ -62,17 +62,22 @@ export default function SingleService(props) {
       <button>Créer post</button>
         {/* <img src={currentService.src} alt="" /> */}
     </Link>
-    <select 
-        className='select'
-        value={ville}
-        onChange={handleChange}
-        name="ville"
-        required
-    >
-    {townList.map((town) => {
-        return <option value={town}>{town} </option>
-        })}
-    </select>
+    <div className='siglePageSearch'>
+      <img className='singleImg' src="../../public/images/search.png" alt="" />
+      <select style={{cursor:"pointer"}}
+          className='select'
+          value={ville}
+          onChange={handleChange}
+          name="ville"
+          required
+      >
+            console.log(currentUser)
+
+      {townList.map((town) => {
+          return <option value={town}>{town} </option>
+          })}
+      </select>
+    </div>
         <div className="post-list containerAll">
           {posts}
         </div>

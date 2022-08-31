@@ -21,7 +21,7 @@
 }
 
 .post-big-container button{
-    margin-top: 0px !important;
+    margin-top: 90px !important;
 }
 
 .advisor_thumb img {
@@ -89,7 +89,44 @@
 {
 
 } */
+.siglePageSearch{
+    display: flex;
+    width: 500px;
+    background-color: rgba(109, 124, 144, 0.199);
+    border-radius: 8px;
+    margin-bottom: 35px;
+    border: none;
+    height: 50px;
+    margin-top: -10px;
+}
+.singleImg{
+    width: 22px;
+    height: 22px;
+    /* border-right: 1px solid black; */
+    /* position: absolute; */
+    margin: auto;
+    margin-left: 13px;
+    margin-right: 10px;
+}
 .select{
+    background-color: rgba(109, 124, 144, 0);
+    border-radius: 8px;
+    margin-bottom: 25px;
+    border: none;
+    height: 50px;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Work Sans', sans-serif;;
+    font-size: 15px;
+    text-indent: 15px;
+    letter-spacing: -0.5px;
+    font-weight: 300;
+    width: 500px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-left: 2px solid rgba(109, 124, 144, 0.534);
+}
+.selectcreate{
     background-color: rgba(109,124,144,.1);
     border-radius: 8px;
     margin-bottom: 25px;
@@ -103,14 +140,10 @@
     letter-spacing: -0.5px;
     font-weight: 300;
     width: 500px;
+    cursor: pointer;
 
 }
-.select:focus{
-    outline: 2.5px solid var(--maincolor);
-    background-color: white;
-    color: rgb(0, 0, 0);
-}
-.select:hover{
+.siglePageSearch:hover{
     box-shadow: 0px 2px 5px 0.001px #aaaaaa;
     transition: .3s;
 }

@@ -20,10 +20,10 @@ export default function Createpost(props) {
         if (!props.user) {
             navigate("/login");            
         }
-        // else if (props.currentUser.numero == undefined) navigate("/settings"); 
+        else if ((props.currentUser) && (props.currentUser.verified != true)) navigate("/settings");
         
     }
-    ,[props.user]);
+    ,[props.currentUser.numero]);
     const [buttonstatus, setbuttonstatus] = useState(true)
     const [formData,setFormData] = React.useState({
         prix:"",
@@ -63,7 +63,7 @@ return (
                     <form onSubmit={handleSubmit}>
                         <label className='first--input'>Service</label>
                         <select 
-                            className='select'
+                            className='selectcreate'
                             value={formData.service}
                             onChange={handleChange}
                             name="service"

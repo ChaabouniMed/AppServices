@@ -45,11 +45,12 @@
     font-weight: bold;
     font-size: 18px;
     padding: 15px;
-    margin-top: -38px;
+    /* margin-top: -38px; */
     margin-right: 3px;
     display: inline-block;
     position: fixed;
     right: 0;
+    top: 55px;
     z-index: 100;
 }
 .dropdown::before{

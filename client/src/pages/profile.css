@@ -15,7 +15,7 @@
   -webkit-box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
   box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
   border: none;
-  margin-bottom: 30px;
+  /* margin-bottom: -40px; */
 }
 
 .m-r-0 {
@@ -145,7 +145,7 @@ p {
 
 .col-md-12{
   margin: auto;
-  margin-top: -100px !important;
+  /* margin-top: -100px !important; */
   width: 70%;
 }
 

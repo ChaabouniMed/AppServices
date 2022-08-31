@@ -29,7 +29,7 @@ export default function FormNewAcc(props){
         prénom:"",
         email:"",
         mdp:"",
-        verified:"false"
+        verified:false
             })
     //-------------------- DataBase functions
 

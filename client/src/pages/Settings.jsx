@@ -26,7 +26,8 @@ export default function Settings(props) {
         numero:"",
         facebook:"",
         ville:"",
-        age:""
+        age:"",
+        verified: true, 
         })
         const [file, setFile] = useState();
         function handlePictureChange(event)
@@ -48,6 +49,7 @@ export default function Settings(props) {
             e.preventDefault()
             const docRef = doc(db, "users", props.user.uid );
             setDoc(docRef, formData , {merge :true}).then(() => {
+              props.setCurrentUser(old=> {return  {...old , verified : true }} )
               console.log("Document has been added successfully")
             })            
               const fileRef = ref(storage,props.user.uid+'.png');
