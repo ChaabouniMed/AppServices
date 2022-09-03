@@ -5,6 +5,7 @@ import { query,where,getDocs, collection, deleteDoc, doc, getDoc } from "firebas
 import { useEffect ,useState} from 'react';
 import { db } from "../firebase-config";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import { useNavigate } from 'react-router-dom'
 import  Post  from './Post' 
 import './Post.css'
 import SubmitStars from '../components/stars/SubmitStars'
@@ -71,7 +72,7 @@ export default function Profile(props) {
                                 <div className="m-b-25">
                                     <img src={link} className="img-radius" alt="User-Profile-Image"/>
                                 </div>
-                                <h3 className="f-w-600">{userDoc.nom} {userDoc.prénom}</h3>
+                                <h3 className="f-w-600">{userDoc.prénom} {userDoc.nom}</h3>
                                 <p>{userDoc.utilisateur}</p>
                                 <a href={userDoc.facebook? userDoc.facebook : "/error"} target="_blank"><img src="../../public/images/facebook.png" alt="" className='fb'/></a> 
                                 <Stars nombre={userDoc.total/userDoc.nombre} />

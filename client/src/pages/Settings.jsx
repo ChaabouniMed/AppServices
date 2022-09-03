@@ -59,9 +59,10 @@ return (
     <div>
         <div className='container1'>
             <div className="form--container">
-                <h1 className='title'>Settings</h1>
+                <h1 className='title'>Réglage</h1>
+                <p className='first--input' style={{color: "red",marginBottom: "30px"}}>Ps: remplir ce formulaire pour compléter votre profile et pouvoir créer des posts. </p>
                     <form onSubmit={handleSubmit}>
-                    <label htmlFor="nom" className='first--input'>Numero de telephone</label>
+                    <label htmlFor="nom">Numero de telephone</label>
                     <input 
                         type="text" 
                         name='numero'

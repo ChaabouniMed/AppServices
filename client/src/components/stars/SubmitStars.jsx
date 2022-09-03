@@ -52,7 +52,7 @@ export default function SubmitStars(props)
       
       getstar().then(console.log(star))
       
-      async ()=> { await setDoc(profileRef,star,{merge :true})}
+      setDoc(profileRef,star,{merge :true})
     }
     return (
       <div style={styles.container}>

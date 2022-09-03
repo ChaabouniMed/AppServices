@@ -1,0 +1,103 @@
+.usersAdminContainerAll{
+    margin-top: 70px;
+}
+
+.admin{
+    color: red;
+}
+
+table{
+    border: 1.5px solid var(--backgroundColor);
+    width: 90%;
+    margin: auto;
+    border-spacing: 0;
+    margin-bottom: 50px;
+}
+
+caption h1{
+    color:var(--secondarycolor)
+}
+
+tr{
+    height: 60px;
+    border: 1.5px solid var(--backgroundColor) ;
+}
+
+td{
+    padding-left: 5px;
+    width: 12.5%;
+    border-bottom: 1.5px solid var(--backgroundColor) ;
+}
+
+tbody tr:last-of-type td{
+    border-bottom: none;
+}
+
+tbody td p {
+    margin-left: 8px;
+}
+
+thead td:nth-of-type(3){
+    width: 25% ;
+}
+thead td:nth-of-type(4){
+    width: 37.5% ;
+}
+thead td {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+td a{
+    color: rgb(131, 10, 85);
+}
+
+td > a > p{
+    display: inline-block;
+    border-bottom: 1px solid rgb(131, 10, 85);
+}
+
+.tdVal{
+    height: 18px !important;
+    border-left: 2px solid var(--backgroundColor);
+}
+
+.tdVal p {
+    height: inherit !important;
+    margin: 0 0 0 5px;
+}
+
+.delete-img{
+    width: 31px;
+    height: 31px;
+    margin-left: 20%;
+}
+
+.confirm-img{
+    width: 45px;
+    height: 45px;
+    margin-left: 10%;
+}
+
+.refuser-img{
+    width: 34px;
+    height: 34px;
+    margin-left: 20%;
+    margin-bottom: 5.5px;
+}
+
+.delete-img:hover, .confirm-img:hover, .refuser-img:hover{
+    cursor: pointer;
+}
+
+/* ======================= */
+
+.tdPosts:nth-of-type(2){
+    width: 25% !important;
+}
+.tdPosts:nth-of-type(3){
+    width: 12.5% !important;
+}
+.tdPosts:nth-of-type(4){
+    width: 25% !important;
+}

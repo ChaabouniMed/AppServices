@@ -16,12 +16,12 @@ export default function FormNewAccount(props){
         mdp:""
     })
     const navigate= useNavigate()
-    useEffect(() => {
-        if (props.user) {
-            navigate("/");            
-        }
-    }
-    ,[props.user]);
+    // useEffect(() => {
+    //     if (props.user) {
+    //         navigate("/");            
+    //     }
+    // }
+    // ,[props.user]);
     useEffect(() => {
         onAuthStateChanged(auth, (currentUser) => {
             props.setUser(currentUser);
