@@ -39,12 +39,23 @@ export default function NavbarProfile({currentUser, user})
                             </ul>
                         </div>
                         <ul className={droping ? "dropdown--none" : "dropdown"}>
-                            <Link to={`/profile/${user?.uid}`}>
-                                <li onClick={() => setDroping(true)}>profile</li>
+                            {
+                            currentUser.user == "user" ? <Link to={`/profile/${user?.uid}`}>
+                            <li onClick={() => setDroping(true)}>Profile</li>
+                            </Link> : 
+                            <Link to={`/admin/users`}>
+                            <li onClick={() => setDroping(true)}>Users</li>
                             </Link>
-                            <Link to="/settings">
-                                <li onClick={() => setDroping(true)}>Settings</li>
+                            }  
+                            {/* <Link to="/settings"> */}
+                            {
+                            currentUser.user == "user" ? <Link to={`/settings`}>
+                            <li onClick={() => setDroping(true)}>Settings</li>
+                            </Link> : 
+                            <Link to={`/admin/posts`}>
+                            <li onClick={() => setDroping(true)}>Posts</li>
                             </Link>
+                            } 
                                 <li style={{cursor :"pointer"}}
                                 onClick={
                                 // setDroping(true)

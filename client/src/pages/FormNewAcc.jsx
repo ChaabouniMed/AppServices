@@ -29,17 +29,18 @@ export default function FormNewAcc(props){
         prénom:"",
         email:"",
         mdp:"",
-        verified:false
+        verified:false,
+        user: "user",
             })
     //-------------------- DataBase functions
 
     const navigate= useNavigate()
-    useEffect(() => {
-        if (props.user) {
-            navigate("/");            
-        }
-    }
-    ,[props.user]);
+    // useEffect(() => {
+    //     if (props.user) {
+    //         navigate("/");            
+    //     }
+    // }
+    // ,[props.user]);
 
 
 const usersCollectionRef = collection(db, "users");
@@ -55,7 +56,7 @@ const usersCollectionRef = collection(db, "users");
         formData.mdp
         )
         const docRef = doc(db, "users", auth.currentUser.uid ); //formData.email
-        setDoc(docRef, formData).then(() => {
+        setDoc(docRef, formData, ).then(() => {
             console.log("Document has been added successfully")
             navigate('/')
         })

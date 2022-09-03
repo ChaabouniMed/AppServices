@@ -23,7 +23,7 @@ export default function Createpost(props) {
         else if ((props.currentUser) && (props.currentUser.verified != true)) navigate("/settings");
         
     }
-    ,[props.currentUser.numero]);
+    ,[props.currentUser.verified]);
     const [buttonstatus, setbuttonstatus] = useState(true)
     const [formData,setFormData] = React.useState({
         prix:"",
@@ -34,6 +34,8 @@ export default function Createpost(props) {
         ville : props.currentUser? props.currentUser.ville : "",
         nom : props.currentUser? props.currentUser.nom : "",
         prénom : props.currentUser? props.currentUser.prénom : "",
+        utilisateur: props.currentUser?.utilisateur,
+        état: "En attente"
 
         })
         function handleChange(event){

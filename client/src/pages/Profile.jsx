@@ -5,6 +5,7 @@ import { getDocs, collection, deleteDoc, doc, getDoc } from "firebase/firestore"
 import { useEffect ,useState} from 'react';
 import { db } from "../firebase-config";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import { useNavigate } from 'react-router-dom'
 import  Post  from './Post' 
 import './Post.css'
 export default function Profile(props) {
@@ -15,6 +16,10 @@ export default function Profile(props) {
     const [userDoc ,setuserDoc] = useState({})
     const docref = doc(db, "users", profileId);
     const postsCollectionRef = collection(db, "posts");
+    const navigate= useNavigate()
+    useEffect(() => {
+        if ((props.currentUser) && (props.currentUser.verified != true)) navigate("/settings");
+    },[props.currentUser.verified]);
     useEffect(()=>{
         const storage = getStorage();
         const starsRef = ref(storage, profileId +'.png');
@@ -65,7 +70,7 @@ export default function Profile(props) {
                                 <div className="m-b-25">
                                     <img src={link} className="img-radius" alt="User-Profile-Image"/>
                                 </div>
-                                <h3 className="f-w-600">{userDoc.nom} {userDoc.prénom}</h3>
+                                <h3 className="f-w-600">{userDoc.prénom} {userDoc.nom}</h3>
                                 <p>{userDoc.utilisateur}</p>
                                 <a href={userDoc.facebook? userDoc.facebook : "/error"} target="_blank"><img src="../../public/images/facebook.png" alt="" className='fb'/></a> 
                             </div>

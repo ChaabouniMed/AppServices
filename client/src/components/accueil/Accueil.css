@@ -6,13 +6,18 @@
     animation-iteration-count: infinite;
 }
 
-.accuei-container{
-    background-color: rgb(221,220,239);
+.accueil-container{
+    /* background-color: rgb(221,220,239); */
     margin-top: 55px;
     position: relative;
-    height: calc(100vh - 55px);
+    height: calc(100vh - 55px) !important;
     margin-bottom: 100px;
 }
+
+#tsparticles{
+    height:calc(100vh - 55px);
+}
+
 
 .search{
     position: absolute;

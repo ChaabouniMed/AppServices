@@ -11,11 +11,12 @@ import Home from './pages/Home';
 import SharedLayout from './pages/SharedLayout';
 import Error from './pages/Error';
 import Settings from './pages/Settings'
-import Searchbar from './pages/Searchbar'
-import ProtectedRoute from './pages/ProtectedRoute';
 import Createpost from './pages/Createpost' ;
 import SingleService from './pages/SingleService'
 import Profile from './pages/Profile';
+import UsersAdmin from './pages/UsersAdmin';
+import PostsAdmin from './pages/PostsAdmin'
+import Particle from './components/Particle';
 import {useEffect} from 'react' 
 import {onAuthStateChanged} from "firebase/auth";
 import { auth } from "./firebase-config";
@@ -85,21 +86,24 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path='/' element={<SharedLayout currentUser={currentUser} user={user}/>}>
-        <Route index element={<Home currentUser={currentUser} />} />
-        {/* <Route path="profile/services/:serviceId" element={<SingleService />} /> */}
-        <Route path="services/:serviceId" element={<SingleService serviceName={serviceName} setServiceName={setServiceName} user={user}/>} />
-        <Route path='login' element={<FormSeConn setUser={setUser} user={user}/>} />
-        <Route path='signin' element={<FormNewAcc setUser={setUser} user={user} />} />
-        <Route path='*' element={<Error currentUser={currentUser} />} />
-        <Route path='settings' element={<Settings currentUser={currentUser} user={user} setCurrentUser={setCurrentUser}/>} />
-        <Route path='profile/:profileId' element={<Profile user={user}/>} />
-        <Route path='profile/:profileId' element={<Profile user={user} />} />
-        <Route path='creerpost' element ={<Createpost currentUser={currentUser} user={user} serviceName={serviceName}/>}/>
+          <Route index element={<Home currentUser={currentUser} />} />
+          {/* <Route path="profile/services/:serviceId" element={<SingleService />} /> */}
+          <Route path="services/:serviceId" element={<SingleService serviceName={serviceName} setServiceName={setServiceName} user={user}/>} />
+          <Route path='login' element={<FormSeConn setUser={setUser} user={user}/>} />
+          <Route path='signin' element={<FormNewAcc setUser={setUser} user={user} />} />
+          <Route path='*' element={<Error currentUser={currentUser} />} />
+          <Route path='settings' element={<Settings currentUser={currentUser} user={user} setCurrentUser={setCurrentUser}/>} />
+          <Route path='profile/:profileId' element={<Profile user={user} currentUser={currentUser}/>} />
+          <Route path='creerpost' element ={<Createpost currentUser={currentUser} user={user} serviceName={serviceName}/>}/>
+          <Route path='admin/users' element={<UsersAdmin />} />
+          <Route path='admin/posts' element={<PostsAdmin />} />
         </Route>
         
       </Routes>
       <Footer />
       </BrowserRouter>
+  
+      {/* <Particle /> */}
       {/* <SharedLayout /> */}
     </div>
   )
