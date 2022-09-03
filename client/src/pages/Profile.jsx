@@ -1,12 +1,15 @@
 import React from 'react'
 import './profile.css'
 import { useParams } from 'react-router-dom'
-import { getDocs, collection, deleteDoc, doc, getDoc } from "firebase/firestore";
+import { query,where,getDocs, collection, deleteDoc, doc, getDoc } from "firebase/firestore";
 import { useEffect ,useState} from 'react';
 import { db } from "../firebase-config";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import  Post  from './Post' 
 import './Post.css'
+import SubmitStars from '../components/stars/SubmitStars'
+import Stars from '../components/stars/Stars'
+
 export default function Profile(props) {
     const {profileId} = useParams()
     const [afficherService , setAfficherService] = useState(false)
@@ -15,6 +18,8 @@ export default function Profile(props) {
     const [userDoc ,setuserDoc] = useState({})
     const docref = doc(db, "users", profileId);
     const postsCollectionRef = collection(db, "posts");
+    const starsCollectionRef = collection(db , 'stars')
+    
     useEffect(()=>{
         const storage = getStorage();
         const starsRef = ref(storage, profileId +'.png');
@@ -53,6 +58,7 @@ export default function Profile(props) {
     {
         setAfficherService((old)=>{return !old})
     }
+    console.log(userDoc.total/userDoc.number)
     return (
     <div className="page-content page-container" id="page-content">
     <div className="padding">
@@ -68,7 +74,8 @@ export default function Profile(props) {
                                 <h3 className="f-w-600">{userDoc.nom} {userDoc.prénom}</h3>
                                 <p>{userDoc.utilisateur}</p>
                                 <a href={userDoc.facebook? userDoc.facebook : "/error"} target="_blank"><img src="../../public/images/facebook.png" alt="" className='fb'/></a> 
-                            </div>
+                                <Stars nombre={userDoc.total/userDoc.nombre} />
+                            </div> 
                         </div>
                         <div className="col-sm-8">
                             <div className="card-block">
@@ -101,7 +108,7 @@ export default function Profile(props) {
                                     </div>
                                     <div className="col-sm-6">
                                         <p className="m-b-10 f-w-600">Rating</p>
-                                        <h6 className="text-muted f-w-400">Dinoter husainm</h6>
+                                        <SubmitStars profileId={profileId} user={props.user} />
                                     </div>
                                 </div>
                             </div>
@@ -110,7 +117,7 @@ export default function Profile(props) {
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
     {afficherService && posts}
 </div>
 )
