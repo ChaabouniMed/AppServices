@@ -42,11 +42,12 @@ export default function Profile(props) {
     const deletePost = async (id) => {
         const postDoc = doc(db, "posts", id);
         await deleteDoc(postDoc);
+        window.location.reload();
     };
-    
-    const posts = postLists.map((post) => { if (post.useruid == profileId)
-        return (
+    const posts = postLists.map((post) => { if ((post.useruid == profileId) && (((post.état =="En attente")&&(post.useruid == props.user?.uid) ) || (post.état == "accepté")))        
+    return (
         <div className='posts'>
+            { post.état =="En attente" && <p >Ce post n'est pas encore apprové par l'admin , il n'est pas donc visible aux autres utilisateurs</p>}
         <Post  post={post} />
         {props.user?.email == post.email && 
             <img className='delete--img' src="../../public/images/delete.png" alt=""  onClick={async () => {
@@ -109,7 +110,7 @@ export default function Profile(props) {
                                     </div>
                                     <div className="col-sm-6">
                                         <p className="m-b-10 f-w-600">Rating</p>
-                                        <SubmitStars profileId={profileId} user={props.user} />
+                                        {props.user ? <SubmitStars profileId={profileId} user={props.user} /> : <h6 className="text-muted f-w-400 show" >Veuillez se connecter</h6>}
                                     </div>
                                 </div>
                             </div>

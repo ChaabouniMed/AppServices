@@ -56,6 +56,7 @@ const usersCollectionRef = collection(db, "users");
         formData.mdp
         )
         const docRef = doc(db, "users", auth.currentUser.uid ); //formData.email
+        setFormData((old)=>{return {useruid : auth.currentUser.uid}})
         setDoc(docRef, formData, ).then(() => {
             console.log("Document has been added successfully")
             navigate('/')

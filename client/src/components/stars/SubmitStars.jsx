@@ -38,8 +38,10 @@ export default function SubmitStars(props)
       // submitting to star database
       setDoc(docRef , {note : currentValue , user : props.profileId }).then(console.log('done'))
       // updating user database profile with new value of the submitted value
-      const q = query(collection(db, "stars"), where("user", "==", props.profileId))
-      const getstar= async()=> {const querySnapshot =  await getDocs(q)
+      
+      const getstar= async()=> {
+        const q = query(collection(db, "stars"), where("user", "==", props.profileId))
+        const querySnapshot =  await getDocs(q)
         querySnapshot.forEach((doc) => {
       setStar((old)=>{
           return ({
@@ -48,11 +50,11 @@ export default function SubmitStars(props)
           })
         })
       })
+      setDoc(profileRef,star,{merge :true})
       }
-      
       getstar().then(console.log(star))
       
-      setDoc(profileRef,star,{merge :true})
+      // setDoc(profileRef,star,{merge :true})
     }
     return (
       <div style={styles.container}>

@@ -2,6 +2,8 @@ import React from 'react'
 import './Form.css'
 import Navbar from '../components/navbar/Navbar'
 import { useState, useEffect } from "react"; 
+import { setDoc , getDocs, collection ,query,where, deleteDoc, doc, addDoc } from "firebase/firestore";
+import { db } from "../firebase-config";
 import { auth } from "../firebase-config";
 import {
     createUserWithEmailAndPassword,
@@ -11,6 +13,7 @@ import {
 } from "firebase/auth";
 import { Link, useNavigate } from 'react-router-dom';
 export default function FormNewAccount(props){
+    const [status,setStatus] = useState(false)
     const [FormDataSignIn,setFormDataSignIn] = React.useState({
         email:"",
         mdp:""
@@ -42,6 +45,19 @@ export default function FormNewAccount(props){
         // -------- DataBase functions 
     const login = async (e) => {
         e.preventDefault()
+        // check if user  not in database 
+        // const check= async()=> {
+        //     const q = query(collection(db, "users"), where("email", "==", FormDataSignIn.email))
+        //     const querySnapshot =  await getDocs(q)
+        //     querySnapshot.forEach((doc) => {
+        //         console.log('query')
+        //     setStatus(true)
+        //     })
+        //   }
+        //   check()
+        //   console.log(status)
+        // else 
+
         try {
         const user = await signInWithEmailAndPassword(
             auth,

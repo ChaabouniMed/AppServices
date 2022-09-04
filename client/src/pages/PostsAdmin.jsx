@@ -1,14 +1,24 @@
 import React from 'react'
 import './UsersAdmin.css'
 import {db} from '../firebase-config'
-import { getDocs, collection } from "firebase/firestore";
+import { getDocs,setDoc, collection,doc,deleteDoc } from "firebase/firestore";
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function PostsAdmin() {
     const postsCollectionRef = collection(db, "posts");
     const [postsList, setPostsList] = useState([]);
-
+    const deletePost = async (id) => {
+        const postDoc = doc(db, "posts", id);
+        await deleteDoc(postDoc);
+        window.location.reload();
+      };
+    const confirmPost = async(id)=> 
+    {
+        const postDoc = doc(db, "posts", id);
+        await setDoc(postDoc , {état : "accepté"},{merge : true});
+        window.location.reload();
+    }
     useEffect(() => {
         const getPosts = async () => {
             const data = await getDocs(postsCollectionRef);
@@ -27,10 +37,10 @@ export default function PostsAdmin() {
                 <td className='tdPosts'>
                     {post.état == "En attente" ? 
                     <div>
-                        <img className='confirm-img' src="../../public/images/confirm.png" alt="" />
-                        <img className='refuser-img' src="../../public/images/refuser.png" alt="" />
+                        <img className='confirm-img' src="../../public/images/confirm.png" alt="" onClick={()=>{confirmPost(post.id)}}/>
+                        <img className='refuser-img' src="../../public/images/refuser.png" alt="" onClick={() => {deletePost(post.id)}} />
                     </div> : 
-                    <img className='delete-img' src="../../public/images/delete.png" alt="" />
+                    <img className='delete-img' src="../../public/images/delete.png" alt="" onClick={() => {deletePost(post.id)}}/>
                     }
                 </td>
             </tr> 

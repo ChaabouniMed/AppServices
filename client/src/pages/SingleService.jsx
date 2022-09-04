@@ -25,6 +25,7 @@ export default function SingleService(props) {
     const deletePost = async (id) => {
       const postDoc = doc(db, "posts", id);
       await deleteDoc(postDoc);
+      window.location.reload();
     };
     console.log('signlepage')
     useEffect(() => {
@@ -40,10 +41,11 @@ export default function SingleService(props) {
 
     }
 
-    const posts = postLists.map((post) => { if ((post.service == serviceId) && ((post.ville.toLowerCase()==ville.toLowerCase()) || (ville.toLowerCase()=="--")))
+    const posts = postLists.map((post) => { if ((post.service == serviceId) && (((post.état =="En attente")&&(post.useruid == props.user?.uid) ) || (post.état == "accepté")) && ((post.ville.toLowerCase()==ville.toLowerCase()) || (ville.toLowerCase()=="--")))
     
       return (
       <div className='post'>
+        { post.état =="En attente" && <p >Ce post n'est pas encore apprové par l'admin , il n'est pas donc visible aux autres utilisateurs</p>}
         <Link to={`/profile/${post.useruid}`}>
           <Post  post={post}/>
         </Link>
