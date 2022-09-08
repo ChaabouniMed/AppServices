@@ -12,6 +12,7 @@ import SubmitStars from '../components/stars/SubmitStars'
 import Stars from '../components/stars/Stars'
 
 export default function Profile(props) {
+    const [bool,setbool] = useState(false)
     const {profileId} = useParams()
     const [afficherService , setAfficherService] = useState(false)
     const [postLists, setPostList] = useState([]);
@@ -38,11 +39,12 @@ export default function Profile(props) {
         };
         getPosts();
         getuser()
-    }, []);
+    }, [bool]);
     const deletePost = async (id) => {
         const postDoc = doc(db, "posts", id);
         await deleteDoc(postDoc);
-        window.location.reload();
+        setbool((old)=>{return !old})
+        // window.location.reload();
     };
     const posts = postLists.map((post) => { if ((post.useruid == profileId) && (((post.état =="En attente")&&(post.useruid == props.user?.uid) ) || (post.état == "accepté")))        
     return (
@@ -51,7 +53,7 @@ export default function Profile(props) {
         <Post  post={post} />
         {props.user?.email == post.email && 
             <img className='delete--img' src="../../public/images/delete.png" alt=""  onClick={async () => {
-                await deletePost(post.id).then(navigate('/services/'+serviceId));
+                await deletePost(post.id);
                 }}/>}
         </div>
         )

@@ -8,6 +8,7 @@ import  Post  from './Post'
 import './Post.css'
 
 export default function SingleService(props) {
+  const [bool,setbool] = useState(false)
   const townList = ["--","Sfax" , "Tunis"]
   const [ville,setville]= useState("--")
 
@@ -25,7 +26,7 @@ export default function SingleService(props) {
     const deletePost = async (id) => {
       const postDoc = doc(db, "posts", id);
       await deleteDoc(postDoc);
-      window.location.reload();
+      setbool((old)=>{return !old})
     };
     console.log('signlepage')
     useEffect(() => {
@@ -34,7 +35,7 @@ export default function SingleService(props) {
         setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       };
       getPosts();
-    }, []);
+    }, [bool]);
     function handleChange (event)
     {
       setville(event.target.value)

@@ -32,15 +32,15 @@ export default function SubmitStars(props)
     }
     
     const [star,setStar] = useState({nombre : 0 , total : 0 })
-    function handleSubmit()
+    async function  handleSubmit()
     {
     setStar({nombre : 0 , total : 0})
       // submitting to star database
-      setDoc(docRef , {note : currentValue , user : props.profileId }).then(console.log('done'))
+      await setDoc(docRef , {note : currentValue , user : props.profileId })
       // updating user database profile with new value of the submitted value
       
       const getstar= async()=> {
-        const q = query(collection(db, "stars"), where("user", "==", props.profileId))
+        const q = await query(collection(db, "stars"), where("user", "==", props.profileId))
         const querySnapshot =  await getDocs(q)
         querySnapshot.forEach((doc) => {
       setStar((old)=>{
