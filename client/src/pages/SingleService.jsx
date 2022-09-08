@@ -44,15 +44,17 @@ export default function SingleService(props) {
     const posts = postLists.map((post) => { if ((post.service == serviceId) && (((post.état =="En attente")&&(post.useruid == props.user?.uid) ) || (post.état == "accepté")) && ((post.ville.toLowerCase()==ville.toLowerCase()) || (ville.toLowerCase()=="--")))
     
       return (
-      <div className='post'>
-        { post.état =="En attente" && <p >Ce post n'est pas encore apprové par l'admin , il n'est pas donc visible aux autres utilisateurs</p>}
-        <Link to={`/profile/${post.useruid}`}>
-          <Post  post={post}/>
-        </Link>
-        {props.user?.email == post.email && 
-          <img className='delete--img' src="../../public/images/delete.png" alt=""  onClick={() => {
-                deletePost(post.id).then(navigate('/services/'+serviceId));
-              }}/>}
+      <div className='post1'>
+        <div className='post'>
+          <Link to={`/profile/${post.useruid}`}>
+            <Post  post={post}/>
+          </Link>
+          {props.user?.email == post.email && 
+            <img className='delete--img' src="../../public/images/delete.png" alt=""  onClick={() => {
+                  deletePost(post.id).then(navigate('/services/'+serviceId));
+                }}/>}
+        </div>
+        { post.état =="En attente" && <p style={{color:"red", marginTop:'-20px',marginBottom:'25px'}}>Ce post n'est pas encore approuvé par l'admin , il n'est pas visible aux autres utilisateurs.</p>}
       </div>
       )
     })

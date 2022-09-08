@@ -46,13 +46,15 @@ export default function Profile(props) {
     };
     const posts = postLists.map((post) => { if ((post.useruid == profileId) && (((post.état =="En attente")&&(post.useruid == props.user?.uid) ) || (post.état == "accepté")))        
     return (
-        <div className='posts'>
-            { post.état =="En attente" && <p >Ce post n'est pas encore apprové par l'admin , il n'est pas donc visible aux autres utilisateurs</p>}
-        <Post  post={post} />
-        {props.user?.email == post.email && 
-            <img className='delete--img' src="../../public/images/delete.png" alt=""  onClick={async () => {
-                await deletePost(post.id).then(navigate('/services/'+serviceId));
+        <div className='post2'> 
+            <div className='posts'>
+                <Post  post={post} />
+                {props.user?.email == post.email && 
+                    <img className='delete--img' src="../../public/images/delete.png" alt=""  onClick={async () => {
+                    await deletePost(post.id).then(navigate('/services/'+serviceId));
                 }}/>}
+            </div>
+            {post.état =="En attente" && <p style={{color:"red", marginLeft:"-160px", marginTop:"-20px",marginBottom:"30px"}}>Ce post n'est pas encore approuvé par l'admin , il n'est pas donc visible aux autres utilisateurs.</p>}
         </div>
         )
     })

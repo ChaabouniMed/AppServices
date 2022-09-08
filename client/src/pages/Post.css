@@ -47,6 +47,18 @@
     display: flex;
     align-items:flex-end;
 }
+.post1{
+    display: flex;
+    /* align-items:center; */
+    flex-direction: column;
+}
+
+.post2{
+    display: flex;
+    align-items:center;
+    flex-direction: column;
+    justify-content: center;
+}
 
 .posts{
     display: flex;
