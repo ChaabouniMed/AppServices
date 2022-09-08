@@ -38,7 +38,6 @@ export default function SingleService(props) {
     function handleChange (event)
     {
       setville(event.target.value)
-
     }
 
     const posts = postLists.map((post) => { if ((post.service == serviceId) && (((post.état =="En attente")&&(post.useruid == props.user?.uid) ) || (post.état == "accepté")) && ((post.ville.toLowerCase()==ville.toLowerCase()) || (ville.toLowerCase()=="--")))
@@ -58,33 +57,33 @@ export default function SingleService(props) {
       </div>
       )
     })
+    // console.log(props.currentUser)
 
   return (
     <div className='post-big-container'>
-
-    <Link to='/creerpost'>
-      <button>Créer post</button>
-        {/* <img src={currentService.src} alt="" /> */}
-    </Link>
-    <div className='siglePageSearch'>
-      <img className='singleImg' src="../../public/images/search.png" alt="" />
-      <select style={{cursor:"pointer"}}
-          className='select'
-          value={ville}
-          onChange={handleChange}
-          name="ville"
-          required
-      >
-            console.log(currentUser)
-
-      {townList.map((town) => {
-          return <option value={town}>{town} </option>
-          })}
-      </select>
-    </div>
-        <div className="post-list containerAll">
-          {posts}
-        </div>
+      {
+      props.currentUser.user == "user" && 
+      <Link to='/creerpost'>
+        <button>Créer post</button>
+          {/* <img src={currentService.src} alt="" /> */}
+      </Link>}
+      <div className='siglePageSearch' style={props.currentUser.user == "user" ? {} : {marginTop:"90px"}}>
+        <img className='singleImg' src="../../public/images/search.png" alt="" />
+        <select style={{cursor:"pointer"}}
+            className='select'
+            value={ville}
+            onChange={handleChange}
+            name="ville"
+            required
+        >
+        {townList.map((town) => {
+            return <option value={town}>{town} </option>
+            })}
+        </select>
+      </div>
+          <div className="post-list containerAll">
+            {posts}
+          </div>
     </div>
   )
 }
