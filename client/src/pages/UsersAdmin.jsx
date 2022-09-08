@@ -3,6 +3,7 @@ import './UsersAdmin.css'
 import {db} from '../firebase-config'
 import { getDocs, collection ,deleteDoc , doc} from "firebase/firestore";
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function UsersAdmin() {
     const usersCollectionRef = collection(db, "users");
@@ -22,7 +23,7 @@ export default function UsersAdmin() {
     const tableBody = usersList.map((user) => { 
         return(
             <tr key={user.email}>
-                <td><p>{user.utilisateur}</p></td>
+                <td><Link to={`/profile/${user.id}`}><p>{user.utilisateur}</p></Link></td>
                 <td><p>{user.ville}</p></td>
                 <td><p>{user.email}</p></td>
                 <td><p>Services</p></td>

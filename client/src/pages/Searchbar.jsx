@@ -48,6 +48,7 @@ export default function Searchbar() {
           type="text"
           value={wordEntered}
           onChange={handleFilter}
+          placeholder="Ce que vous cherchez..."
         />
       </div>
       

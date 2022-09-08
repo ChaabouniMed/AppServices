@@ -24,7 +24,7 @@ export default function Particle() {
                 "fpsLimit": 80,
                 "particles": {
                     "number": {
-                        "value": 130,
+                        "value": 80,
                         "density": {
                             "enable": true,
                             "value_area": 800
@@ -56,7 +56,7 @@ export default function Particle() {
                     },
                     "move": {
                         "enable": true,
-                        "speed": 2,
+                        "speed": 1,
                         "direction": "none",
                         "outModes": {
                             "default": "out"

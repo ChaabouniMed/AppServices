@@ -59,7 +59,7 @@ export default function Createpost(props) {
 
 return (
     <div>
-        <div className='container1' style={{height:"100vh"}}>
+        <div className='container1' style={{height:"137vh"}}>
             <div className="form--container">
                 <h1 className='title'>Créer un post</h1>
                     <form onSubmit={handleSubmit}>
@@ -76,14 +76,21 @@ return (
                             })}
                         </select>
                         <label htmlFor="nom" >Description</label>
-                        <input 
+                        <textarea style={{height:'200px'}} name="description" cols="30" rows="10"
+                        placeholder="Détails , compétences et disponibilité.."
+                        value={formData.description}
+                        onChange={handleChange}
+                        required
+                        >
+                        </textarea>
+                        {/* <input 
                             type="text" 
                             name='description'
                             placeholder="Détails , compétences et disponibilité.."
                             value={formData.description}
                             onChange={handleChange}
                             required
-                        />
+                        /> */}
                         <label htmlFor="nom" >Prix du services</label>
                         <input 
                             type="text" 

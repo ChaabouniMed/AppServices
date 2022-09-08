@@ -88,7 +88,7 @@ function App() {
         <Route path='/' element={<SharedLayout currentUser={currentUser} user={user}/>}>
           <Route index element={<Home currentUser={currentUser} />} />
           {/* <Route path="profile/services/:serviceId" element={<SingleService />} /> */}
-          <Route path="services/:serviceId" element={<SingleService serviceName={serviceName} setServiceName={setServiceName} user={user}/>} />
+          <Route path="services/:serviceId" element={<SingleService serviceName={serviceName} setServiceName={setServiceName} user={user} currentUser={currentUser}/>} />
           <Route path='login' element={<FormSeConn setUser={setUser} user={user}/>} />
           <Route path='signin' element={<FormNewAcc setUser={setUser} user={user} />} />
           <Route path='*' element={<Error currentUser={currentUser} />} />

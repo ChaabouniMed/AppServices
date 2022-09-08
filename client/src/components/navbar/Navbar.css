@@ -22,6 +22,7 @@
 .nav-logo
 {
     margin-left: 20px;
+    color: var(--backgroundColor);
 }
 .nav>ul ,.navbar-dropdown
 {

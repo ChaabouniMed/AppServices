@@ -40,7 +40,7 @@
     width: 500px;
 }
 
-.form--container input{
+.form--container input,textarea{
     background-color: rgba(109,124,144,.1);
     border: none;
     border-radius: 8px;
@@ -57,13 +57,13 @@
 }
 
 
-.form--container input:focus{
+.form--container input:focus, textarea:focus{
     outline: 2.5px solid var(--maincolor);
     background-color: white;
     color: rgb(0, 0, 0);
 }
 
-.form--container input:hover{
+.form--container input:hover,textarea:hover{
     box-shadow: 0px 2px 5px 0.001px #aaaaaa;
     transition: .3s;
 }

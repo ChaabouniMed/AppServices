@@ -17,7 +17,7 @@ export default function NavbarProfile({currentUser, user})
                     <div className="nav--container">
                         <div className="nav">
                             <Link to="/">
-                            <h3 className="nav-logo">WebsiteName</h3>
+                            <h2 className="nav-logo">Khademni</h2>
                             </Link>
                             <ul className="navbar-links">
                                 <li className="navbar-item-profile"><a href="#top" >Acceuil</a></li>

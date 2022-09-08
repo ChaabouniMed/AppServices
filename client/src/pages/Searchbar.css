@@ -51,9 +51,10 @@
   }
   
   .dataResult {
+    margin-left:45px ;
     margin-top: 5px;
-    width: 500px;
-    height: 200px;
+    width: 455px;
+    max-height: 200px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     overflow: hidden;
