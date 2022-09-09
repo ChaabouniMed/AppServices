@@ -9,7 +9,10 @@ export default function Navbar()
                     <div className="nav--container">
                         <div className="nav">
                             <Link to="/">
-                            <h2 className="nav-logo">Khademni</h2>
+                            <div className="nav--left">
+                                <img className="suitcase" src="../../../public/suitcase.png" alt="" />
+                                <h2 className="nav-logo">Khademni</h2>
+                                </div>
                             </Link>
                             <ul className="navbar-links">
                                 <li className="navbar-item"><a href="#top" >Acceuil</a></li>

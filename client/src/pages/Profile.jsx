@@ -1,6 +1,6 @@
 import React from 'react'
 import './profile.css'
-import { useParams } from 'react-router-dom'
+import { Link,useParams } from 'react-router-dom'
 import { query,where,getDocs, collection, deleteDoc, doc, getDoc } from "firebase/firestore";
 import { useEffect ,useState} from 'react';
 import { db } from "../firebase-config";
@@ -114,7 +114,7 @@ export default function Profile(props) {
                                     </div>
                                     <div className="col-sm-6">
                                         <p className="m-b-10 f-w-600">Rating</p>
-                                        {props.user ? <SubmitStars profileId={profileId} user={props.user} /> : <h6 className="text-muted f-w-400 show" >Veuillez se connecter</h6>}
+                                        {props.user ? <SubmitStars profileId={profileId} user={props.user} /> : <Link to="/login"><h6 className="text-muted f-w-400 show" >Veuillez se connecter</h6></Link> }
                                     </div>
                                 </div>
                             </div>

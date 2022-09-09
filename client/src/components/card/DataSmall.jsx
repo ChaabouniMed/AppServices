@@ -55,8 +55,8 @@ export default [
 
     {
         id: 10,
-        src: "/images/services/coaching.png",
-        name: "Coaching et formation"
+        src: "/images/services/forgeron.png",
+        name: "Forgeron"
     },
     // {
     //     id: 11,

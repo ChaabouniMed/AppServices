@@ -55,8 +55,8 @@ export default [
 
     {
         id: 10,
-        src: "../../../public/images/services/coaching.png",
-        name: "Coaching et formation"
+        src: "../../../public/images/services/forgeron.png",
+        name: "Forgeron"
     },
     {
         id: 11,
@@ -85,8 +85,8 @@ export default [
     },
     {
         id: 16,
-        src: "../../../public/images/services/mechanic.png",
-        name: "Mécanicien"
+        src: "../../../public/images/services/maçon.png",
+        name: "Maçonnerie"
     },
     {
         id: 17,
