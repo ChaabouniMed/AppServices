@@ -77,7 +77,7 @@ export default function FormNewAccount(props){
     return(
         <div className='container2'>
             <div className="form--container">
-                <h1 className='title'>Welcome Back to</h1>
+                <h1 className='title'>Se connecter</h1>
                 <form onSubmit={login}>
                     <label htmlFor="email" className='first--input'>E-mail adresse</label>
                     <input 

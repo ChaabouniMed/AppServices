@@ -7,7 +7,7 @@ export default[
     },
     {
         title: "Demander un service",
-        description: "Passez en revue la description du service et les avis des clients, puis demandez-le pour ouvrir une connexion avec le prestatire.",
+        description: "Passez en revue la description du service, puis demandez-le pour ouvrir une connexion avec le prestatire.",
         id: "2",
         src: "../../../public/images/demander.png"
     },

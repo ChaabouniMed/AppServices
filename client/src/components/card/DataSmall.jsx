@@ -32,7 +32,7 @@ export default [
     {
         id: 6,
         src: "/images/services/dog.png",
-        name: "Soins aux animausx"
+        name: "Soins aux animaux"
     },
 
     {
