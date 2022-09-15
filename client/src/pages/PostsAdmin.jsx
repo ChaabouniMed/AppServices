@@ -6,18 +6,19 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function PostsAdmin() {
+    const [bool,setbool] = useState(false)
     const postsCollectionRef = collection(db, "posts");
     const [postsList, setPostsList] = useState([]);
     const deletePost = async (id) => {
         const postDoc = doc(db, "posts", id);
         await deleteDoc(postDoc);
-        window.location.reload();
+        setbool((old)=>{return !old})
       };
     const confirmPost = async(id)=> 
     {
         const postDoc = doc(db, "posts", id);
         await setDoc(postDoc , {état : "accepté"},{merge : true});
-        window.location.reload();
+        setbool((old)=>{return !old})
     }
     useEffect(() => {
         const getPosts = async () => {
@@ -25,7 +26,7 @@ export default function PostsAdmin() {
             setPostsList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         };
         getPosts();
-    }, []);
+    }, [bool]);
     const tableBody = postsList.map((post) => { 
         return(
             <tr key={post.email}>

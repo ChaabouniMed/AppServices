@@ -6,12 +6,13 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function UsersAdmin() {
+    const [bool,setbool] = useState(false)
     const usersCollectionRef = collection(db, "users");
     const [usersList, setUsersList] = useState([]);
     const deleteUser = async (id) => {
         const postDoc = doc(db, "users", id);
         await deleteDoc(postDoc);
-        window.location.reload();
+        setbool((old)=>{return !old})
       };
     useEffect(() => {
         const getUsers = async () => {
@@ -19,7 +20,7 @@ export default function UsersAdmin() {
             setUsersList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         };
         getUsers();
-    }, []);
+    }, [bool]);
     const tableBody = usersList.map((user) => { 
         return(
             <tr key={user.email}>
