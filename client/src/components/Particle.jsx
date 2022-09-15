@@ -66,7 +66,7 @@ export default function Particle() {
                 "interactivity": {
                     "events": {
                         "onHover": {
-                            "enable": true,
+                            "enable": false,
                             "mode": "repulse"
                         },
                         "onClick": {

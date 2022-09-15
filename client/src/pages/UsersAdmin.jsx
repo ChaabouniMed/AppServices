@@ -27,7 +27,7 @@ export default function UsersAdmin() {
                 <td><Link to={`/profile/${user.id}`}><p>{user.utilisateur}</p></Link></td>
                 <td><p>{user.ville}</p></td>
                 <td><p>{user.email}</p></td>
-                <td><p>Services</p></td>
+                <td><p>{user.verified ? "True" : "False"}</p></td>
                 <td><img className='delete-img' src="../../public/images/delete.png" alt="" onClick={() => {deleteUser(user.id)}} /></td>
             </tr> 
         )})
@@ -41,7 +41,7 @@ return (
                     <td><div className='tdVal'><p>Username</p></div></td>
                     <td><div className='tdVal'><p>Ville</p></div></td>
                     <td><div className='tdVal'><p>Email</p></div></td>
-                    <td><div className='tdVal'><p>Services</p></div></td>
+                    <td><div className='tdVal'><p>Vérifié?</p></div></td>
                     <td><div className='tdVal'><p>Action</p></div></td>
                 </tr>
             </thead>

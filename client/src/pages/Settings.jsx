@@ -13,6 +13,8 @@ import {
   setDoc
 } from "firebase/firestore";
 import { db } from "../firebase-config";
+
+
 export default function Settings(props) {
   const [photo, setPhoto] = useState(null);
     const navigate= useNavigate()
@@ -21,6 +23,7 @@ export default function Settings(props) {
           navigate("/login");            
         }
       }, [props.user]);
+      const townList = ["--","Ariana","Béja","Ben Arous","Bizerte","Gabes","Gafsa","Jendouba","Kairouan","Kasserine","Kebili","La Manouba","Le Kef","Mahdia","Médenine","Monastir","Nabeul","Sfax","Sidi Bouzid","Siliana","Sousse","Tataouine","Tozeur","Tunis","Zaghouan"]
 
       const [formData,setFormData] = React.useState({
         numero:"",
@@ -84,14 +87,29 @@ return (
                         required
                     />
                     <label htmlFor="nom">Ville</label>
-                    <input 
+                    {/* <input 
                         type="text" 
                         name='ville'
                         placeholder="Tunis , Sfax , Sousse ..."
                         value={formData.ville}
                         onChange={handleChange}
                         required
-                    />
+                    /> */}
+
+
+                    <select style={{cursor:"pointer"}}
+                                value={formData.ville}
+                                onChange={handleChange}
+                                name="ville"
+                                required
+                            >
+                            {townList.map((town) => {
+                                return <option value={town}>{town} </option>
+                                })}
+                      </select>
+
+
+
                     <label htmlFor="nom">Age</label>
                     <input
                       type='age'
@@ -103,6 +121,7 @@ return (
                     />
                     <label htmlFor="nom">Photo de profil</label>
                     <input 
+                        style={{cursor:"pointer"}}
                         type="file" 
                         name='photo'
                         onChange={handlePictureChange}
