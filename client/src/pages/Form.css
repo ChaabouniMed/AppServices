@@ -40,7 +40,7 @@
     width: 500px;
 }
 
-.form--container input,textarea{
+.form--container input,textarea,select{
     background-color: rgba(109,124,144,.1);
     border: none;
     border-radius: 8px;
