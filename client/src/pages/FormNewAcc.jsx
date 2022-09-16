@@ -55,10 +55,9 @@ const usersCollectionRef = collection(db, "users");
         formData.email,
         formData.mdp
         )
-        const docRef = doc(db, "users", auth.currentUser.uid ); //formData.email
+        const docRef = doc(db, "users", auth.currentUser.uid );
         setFormData((old)=>{return {useruid : auth.currentUser.uid}})
         setDoc(docRef, formData, ).then(() => {
-            console.log("Document has been added successfully")
             navigate('/')
         })
         .catch(error => {
@@ -71,18 +70,7 @@ const usersCollectionRef = collection(db, "users");
     }
     };
 
-    // const login = async () => {
-    //   try {
-    //     const user = await signInWithEmailAndPassword(
-    //       auth,
-    //       loginEmail,
-    //       loginPassword
-    //     );
-    //     console.log(user);
-    //   } catch (error) {
-    //     console.log(error.message);
-    //   }
-    // };
+
 
     const logout = async () => {
     await signOut(auth);

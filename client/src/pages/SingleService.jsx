@@ -34,7 +34,6 @@ export default function SingleService(props) {
       await deleteDoc(postDoc);
       setbool((old)=>{return !old})
     };
-    console.log('signlepage')
     useEffect(() => {
       const getPosts = async () => {
         const data = await getDocs(postsCollectionRef);
@@ -64,7 +63,6 @@ export default function SingleService(props) {
       </div>
       )
     })
-    // console.log(props.currentUser)
 
   return (
     <div className='post-big-container'>

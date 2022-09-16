@@ -42,21 +42,11 @@ export default function FormNewAccount(props){
             }
         })
     }
+
         // -------- DataBase functions 
     const login = async (e) => {
         e.preventDefault()
-        // check if user  not in database 
-        // const check= async()=> {
-        //     const q = query(collection(db, "users"), where("email", "==", FormDataSignIn.email))
-        //     const querySnapshot =  await getDocs(q)
-        //     querySnapshot.forEach((doc) => {
-        //         console.log('query')
-        //     setStatus(true)
-        //     })
-        //   }
-        //   check()
-        //   console.log(status)
-        // else 
+         
 
         try {
         const user = await signInWithEmailAndPassword(
@@ -64,7 +54,6 @@ export default function FormNewAccount(props){
             FormDataSignIn.email,
             FormDataSignIn.mdp
         );
-        console.log('logged in ');
         navigate('/')
         
         } catch (error) {

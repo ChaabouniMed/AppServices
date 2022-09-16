@@ -64,7 +64,6 @@ export default function Profile(props) {
     {
         setAfficherService((old)=>{return !old})
     }
-    console.log(userDoc.total/userDoc.number)
     return (
     <div className="page-content page-container" id="page-content">
     <div className="padding">

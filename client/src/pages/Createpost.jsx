@@ -52,7 +52,6 @@ export default function Createpost(props) {
             setbuttonstatus(false)
                 const docRef = collection(db, "posts");
                 addDoc(docRef, formData).then(() => {
-                    console.log("Document has been added successfully")
                     navigate(`/services/${props.serviceName.serviceId}`);
                 })
             }

@@ -33,16 +33,13 @@ import {
 
 function App() {
   const [user, setUser] = useState({});
-  // console.log(user)
   const usersCollectionRef = collection(db, "users");
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
-      // console.log(currentUser)
         setUser(currentUser);
 
     });
 }, [user])
-// console.log(user.email)
   const [currentUser,setCurrentUser] = useState({})
 
   useEffect(() => {
@@ -74,7 +71,6 @@ function App() {
   //   getUsers();
   // }, []);
   
-        // console.log(currentUser)
   return (
     <div>
       {/* <Navbar />
